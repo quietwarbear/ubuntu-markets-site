@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu Markets LLC - Technology Rooted in Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #0f0c0c;
+            --dark-secondary: #1a1615;
+            --dark-tertiary: #252020;
+            --gold: #d4a574;
+            --copper: #b8860b;
+            --amber: #e8b449;
+            --accent: #ff6b35;
+            --text-light: #f5f1e8;
+            --text-muted: #c9bfb0;
+            --border: #3a3330;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--amber);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 12, 12, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--dark-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--amber);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.2);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-light);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-geometric {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 2px solid var(--gold);
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 10%;
+            left: 10%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            top: 60%;
+            right: 15%;
+            animation: float 25s infinite ease-in-out reverse;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            bottom: 15%;
+            left: 30%;
+            animation: float 30s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--dark-bg);
+        }
+
+        .btn-primary:hover {
+            background: var(--amber);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-bg-accent {
+            background: var(--dark-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--dark-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.15);
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--copper));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .product-card h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .product-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-features li {
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .product-features li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .product-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .product-link {
+            flex: 1;
+            display: inline-block;
+            padding: 0.75rem 1rem;
+            background: var(--border);
+            color: var(--text-light);
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .product-link:hover {
+            background: var(--gold);
+            color: var(--dark-bg);
+            border-color: var(--gold);
+        }
+
+        .app-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .app-badge:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Vision Section */
+        .vision-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .vision-text h2 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .philosophy-box {
+            background: var(--dark-tertiary);
+            border-left: 4px solid var(--gold);
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 4px;
+        }
+
+        .philosophy-box h4 {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .philosophy-box p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .vision-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar {
+            background: var(--dark-tertiary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillar h4 {
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .pillar p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--dark-tertiary);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.1);
+        }
+
+        .service-card h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .founder-box {
+            background: var(--dark-tertiary);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .founder-box h3 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-role {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .founder-bio {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .about-visual {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(184, 134, 11, 0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            text-align: center;
+            min-height: 400px;
+        }
+
+        .about-visual-icon {
+            font-size: 4rem;
+        }
+
+        .about-visual p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .contact-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .contact-email:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-divider {
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-text strong {
+            color: var(--gold);
+        }
+
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            nav {
+                padding: 1rem 4%;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 1rem;
+                background: var(--dark-secondary);
+                padding: 2rem 4%;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            nav.menu-open .nav-links {
+                display: flex;
+            }
+
+            .hero {
+                margin-top: 70px;
+                padding: 2rem 4%;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 3rem 4%;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-content,
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-visual {
+                min-height: 300px;
+            }
+
+            .footer-links {
+                gap: 1rem;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .nav-logo {
+                font-size: 1rem;
+                letter-spacing: 0;
+            }
+
+            .product-links {
+                flex-direction: column;
+            }
+
+            .product-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">Ubuntu Markets</div>
+        <ul class="nav-links">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" class="cta-button">Contact</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-geometric">
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Where Heritage Meets Innovation</h1>
+            <p class="hero-tagline">Technology rooted in community, powered by culture</p>
+            <p class="hero-description">Ubuntu Markets builds products and platforms that honor our heritage while shaping the future. We're creating an Afrofuturist technology ecosystem where community, culture, and innovation converge.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Explore Our Products</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-bg-accent">
+        <div class="section-header scroll-reveal">
+            <h2>Our Products</h2>
+            <p>Purpose-built technology that bridges culture, community, and innovation. Each product is designed with intention and rooted in real community needs.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Legacy Table -->
+            <div class="product-card scroll-reveal">
+                <div class="product-icon">🍽️</div>
+                <h3>Legacy Table</h3>
+                <p>Preserve family recipes and culinary heritage for generations to come. Legacy Table uses AI-powered technology to capture, preserve, and celebrate the stories behind your food.</p>
+
+                <ul class="product-features">
+                    <li>AI-powered recipe scanning & digitization</li>
+                    <li>Voice-to-recipe technology</li>
+                    <li>Holiday recipe collections</li>
+                    <li>Social sharing & community curation</li>
+                    <li>Multi-generational family archives</li>
+                </ul>
+
+                <div style="margin: 1.5rem 0; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);">
+                    <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">Available on:</div>
+                    <div>
+                        <a href="https://www.apple.com/app-store/" target="_blank" class="app-badge">
+                            <span>🍎</span> Apple App Store
+                        </a>
+                        <a href="https://play.google.com/store/" target="_blank" class="app-badge">
+                            <span>🤖</span> Google Play Store
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-links">
+                    <a href="https://legacytable.app" target="_blank" class="product-link">Visit Website</a>
+                    <a href="mailto:contact@ubuntumarkets.com" class="product-link">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Kindred -->
+            <div class="product-card scroll-reveal">
+                <div class="product-icon">🌳</div>
+                <h3>Kindred (heyKindred)</h3>
+                <p>Where your circles gather and grow. Kindred is a community platform designed for meaningful connection, shared culture, and collective growth—a space where community is the product.</p>
+
+                <ul class="product-features">
+                    <li>Community gathering spaces</li>
+                    <li>Cultural affinity groups</li>
+                    <li>Event coordination & curation</li>
+                    <li>Shared knowledge & resources</li>
+                    <li>Member-driven conversations</li>
+                </ul>
+
+                <div style="margin: 1.5rem 0; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);">
+                    <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">Platform:</div>
+                    <div>
+                        <a href="https://heykindred.org" target="_blank" class="app-badge">
+                            <span>🌐</span> Web Platform
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-links">
+                    <a href="https://heykindred.org" target="_blank" class="product-link">Visit Kindred</a>
+                    <a href="mailto:contact@ubuntumarkets.com" class="product-link">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision">
+        <div class="section-header scroll-reveal">
+            <h2>Our Vision: Ubuntu in Technology</h2>
+            <p>We believe in building technology that reflects our values and serves our communities.</p>
+        </div>
+
+        <div class="vision-content scroll-reveal">
+            <div class="vision-text">
+                <h2 style="margin-top: 0;">Ubuntu Philosophy</h2>
+                <p><strong style="color: var(--gold);">I am because we are.</strong> This ancient African principle guides everything we do. Technology should strengthen our bonds, preserve our culture, and uplift our communities.</p>
+
+                <p>At Ubuntu Markets, we're not just building products—we're building an ecosystem rooted in Afrofuturist principles. We combine cutting-edge technology with deep respect for cultural heritage, creating tools that serve real human needs.</p>
+
+                <div class="philosophy-box">
+                    <h4>Afrofuturism as Framework</h4>
+                    <p>We imagine and build futures where African diaspora communities lead in technology innovation, where our culture drives design, and where our voices shape the digital landscape.</p>
+                </div>
+            </div>
+
+            <div class="vision-pillars">
+                <div class="pillar scroll-reveal">
+                    <div class="pillar-icon">🔗</div>
+                    <h4>Community First</h4>
+                    <p>Technology that strengthens bonds and amplifies collective voice.</p>
+                </div>
+                <div class="pillar scroll-reveal">
+                    <div class="pillar-icon">🎨</div>
+                    <h4>Cultural Rooted</h4>
+                    <p>Design that honors heritage and celebrates identity.</p>
+                </div>
+                <div class="pillar scroll-reveal">
+                    <div class="pillar-icon">⚡</div>
+                    <h4>Innovation Driven</h4>
+                    <p>Cutting-edge technology that serves people, not trends.</p>
+                </div>
+                <div class="pillar scroll-reveal">
+                    <div class="pillar-icon">🌍</div>
+                    <h4>Globally Minded</h4>
+                    <p>Bridging diaspora, building futures together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-bg-accent">
+        <div class="section-header scroll-reveal">
+            <h2>Our Services</h2>
+            <p>Strategic expertise to help your organization build technology rooted in culture and community.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card scroll-reveal">
+                <h3>EdTech Consulting</h3>
+                <p>Transform education through culturally responsive technology. We help organizations design and implement educational platforms that honor diverse learning styles and cultural contexts.</p>
+            </div>
+
+            <div class="service-card scroll-reveal">
+                <h3>Cultural Technology Advisory</h3>
+                <p>Strategic guidance for building products that resonate with cultural communities. From UX design to go-to-market strategy, we ensure your technology reflects and serves your audience.</p>
+            </div>
+
+            <div class="service-card scroll-reveal">
+                <h3>Community Platform Development</h3>
+                <p>Build spaces where your community thrives. We specialize in creating platforms that foster connection, enable collaboration, and amplify community voice and agency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header scroll-reveal">
+            <h2>About Ubuntu Markets</h2>
+            <p>Built by Doc and Shy, two visionaries committed to Afrofuturist innovation.</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text scroll-reveal">
+                <h2 style="margin-top: 0; color: var(--gold);">Our Story</h2>
+                <p>Ubuntu Markets was founded on a simple conviction: technology should serve communities, honor culture, and create pathways to thriving futures. In the heart of Oakland, Doc and Shy are building an ecosystem of products and services that embody Afrofuturist principles.</p>
+
+                <p>With Doc's background as a Chief Innovation Officer and deep expertise in building transformative technology solutions, combined with Shy's strategic vision and community-rooted approach, Ubuntu Markets represents the intersection of enterprise-level innovation and authentic community service.</p>
+
+                <div class="founder-box">
+                    <h3>Doc (Hodari Toure)</h3>
+                    <div class="founder-role">Founder & Chief Innovation Officer</div>
+                    <div class="founder-bio">Leading innovation at enterprise scale while building the future of culturally-rooted technology. Doc brings strategic vision, technical depth, and unwavering commitment to community advancement.</div>
+                </div>
+
+                <div class="founder-box">
+                    <h3>Shy</h3>
+                    <div class="founder-role">Co-Founder & Community Vision Lead</div>
+                    <div class="founder-bio">Driving the strategic direction and community integration of our platform ecosystem. Shy ensures that every product and service truly serves the communities we build for.</div>
+                </div>
+            </div>
+
+            <div class="about-visual scroll-reveal">
+                <div class="about-visual-icon">🌍</div>
+                <p>Based in Oakland, building for the world</p>
+                <p style="font-size: 0.95rem; margin-top: 2rem; color: var(--text-muted);">Ubuntu Markets is proud to operate at the intersection of culture, community, and innovation—honoring the legacy of African diaspora achievement while building pathways to thriving digital futures.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-bg-accent">
+        <div class="contact-content scroll-reveal">
+            <h2>Let's Build Together</h2>
+            <p>Interested in our products, services, or the Ubuntu Markets vision? We'd love to hear from you.</p>
+
+            <a href="mailto:contact@ubuntumarkets.com" class="contact-email">contact@ubuntumarkets.com</a>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    Learn more about our products:<br>
+                    <a href="https://legacytable.app" target="_blank" style="color: var(--gold);">Legacy Table</a> •
+                    <a href="https://heykindred.org" target="_blank" style="color: var(--gold);">Kindred</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#products">Products</a>
+                <a href="#vision">Vision</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-divider"></div>
+            <p class="footer-text">
+                <strong>Ubuntu Markets LLC</strong> • Building Afrofuturist technology rooted in community<br>
+                Oakland, California • contact@ubuntumarkets.com
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('nav');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            nav.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('menu-open');
+            });
+        });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.scroll-reveal').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect on hero geometric shapes
+        const shapes = document.querySelectorAll('.geometric-shape');
+        window.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+
+            shapes.forEach((shape, index) => {
+                shape.style.transform = `translate(${moveX * (index + 1)}px, ${moveY * (index + 1)}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
