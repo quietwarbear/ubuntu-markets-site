@@ -7,8 +7,10 @@
 <meta name="description" content="Ubuntu Markets builds technology rooted in community — tools that honor heritage, connect generations, and build for the village.">
 <link rel="icon" type="image/png" sizes="512x512" href="/ubuntu_market_512.png">
 <link rel="apple-touch-icon" href="/ubuntu_market_512.png">
+<link rel="canonical" href="https://ubuntu-markets.org/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ubuntu-markets.org/">
+<meta property="og:site_name" content="Ubuntu Markets">
 <meta property="og:title" content="Ubuntu Markets — We Build for the Village">
 <meta property="og:description" content="Technology rooted in community. Tools that honor heritage, connect generations, and build for the village.">
 <meta property="og:image" content="https://ubuntu-markets.org/ubuntu_market_512.png">
@@ -287,6 +289,33 @@
     .hero-scroll-hint { left: 2rem; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ubuntu Markets",
+  "alternateName": "Ubuntu Markets LLC",
+  "url": "https://ubuntu-markets.org/",
+  "logo": "https://ubuntu-markets.org/ubuntu_market_512.png",
+  "email": "contact@ubuntu-markets.org",
+  "description": "Ubuntu Markets builds technology rooted in community — tools that honor heritage, connect generations, and build for the village.",
+  "founder": [
+    { "@type": "Person", "name": "Hodari Touré" },
+    { "@type": "Person", "name": "Shylah Touré" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oakland",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://legacytable.app",
+    "https://heykindred.org",
+    "https://www.ile-ubuntu.org"
+  ]
+}
+</script>
 </head>
 <body>
 <div class="stars" id="stars"></div>
@@ -445,6 +474,18 @@
     </a>
 
   </div>
+
+  <div class="reveal" style="max-width:600px;margin:4rem auto 0;padding:2rem;text-align:center;border:1px solid rgba(42,155,173,0.35);border-radius:6px;background:rgba(27,107,122,0.08);">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--teal-light);margin-bottom:0.5rem;">Kindred launches soon.</p>
+    <p style="color:var(--cream-dim);margin-bottom:1.25rem;font-size:0.95rem;">Be first in line when it opens. No spam — just the launch note.</p>
+    <form id="kindred-form" action="https://formspree.io/f/REPLACE_WITH_WAITLIST_ID" method="POST" style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
+      <input type="email" name="email" placeholder="you@email.com" required style="flex:1;min-width:220px;padding:0.8rem 1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(42,155,173,0.4);border-radius:4px;color:var(--cream);font-family:inherit;font-size:0.95rem;">
+      <input type="hidden" name="list" value="kindred-waitlist">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">Join Waitlist</button>
+    </form>
+    <p id="kindred-status" style="margin-top:0.75rem;font-size:0.85rem;color:var(--cream-dim);min-height:1.2em;"></p>
+  </div>
 </section>
 
 <section class="about" id="about">
@@ -494,10 +535,22 @@
   <div class="reveal">
     <h2 class="contact-title">Let's build<br>something <em>together.</em></h2>
     <p class="contact-sub">Whether you're a partner, investor, educator, or just someone who believes in the vision — the village starts with a conversation.</p>
-    <div style="margin-bottom: 2rem;"><a href="mailto:contact@ubuntu-markets.org" class="contact-email">contact@ubuntu-markets.org</a></div>
+
+    <form id="contact-form" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST" style="max-width:560px;margin:0 auto 2rem;display:grid;gap:1rem;text-align:left;">
+      <input type="text" name="name" placeholder="Your name" required style="padding:0.9rem 1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.3);border-radius:4px;color:var(--cream);font-family:inherit;font-size:1rem;">
+      <input type="email" name="email" placeholder="Email address" required style="padding:0.9rem 1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.3);border-radius:4px;color:var(--cream);font-family:inherit;font-size:1rem;">
+      <input type="text" name="role" placeholder="Partner / Investor / Educator / Other (optional)" style="padding:0.9rem 1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.3);border-radius:4px;color:var(--cream);font-family:inherit;font-size:1rem;">
+      <textarea name="message" placeholder="Tell us about the village you want to build." rows="4" required style="padding:0.9rem 1rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.3);border-radius:4px;color:var(--cream);font-family:inherit;font-size:1rem;resize:vertical;"></textarea>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">Send Message</button>
+      <p id="contact-status" style="text-align:center;font-size:0.9rem;color:var(--cream-dim);min-height:1.2em;"></p>
+    </form>
+
+    <p style="font-size:0.85rem;color:var(--cream-dim);margin-bottom:2rem;">Or email us directly at <a href="mailto:contact@ubuntu-markets.org" style="color:var(--gold);">contact@ubuntu-markets.org</a></p>
+
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
       <a href="#products" class="btn-primary">View Our Products</a>
-      <a href="https://heykindred.org" class="btn-ghost" target="_blank">Visit Kindred</a>
+      <a href="https://heykindred.org" class="btn-ghost" target="_blank" rel="noopener noreferrer">Visit Kindred</a>
     </div>
   </div>
 </section>
@@ -507,10 +560,10 @@
   <ul class="footer-links">
     <li><a href="#products">Products</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="https://www.ile-ubuntu.org" target="_blank">Ile Ubuntu</a></li>
+    <li><a href="https://www.ile-ubuntu.org" target="_blank" rel="noopener noreferrer">Ile Ubuntu</a></li>
     <li><a href="mailto:contact@ubuntu-markets.org">Contact</a></li>
   </ul>
-  <p class="footer-copy">© 2026 Ubuntu Markets LLC & Ubuntu Villages 501c3 · Oakland, CA</p>
+  <p class="footer-copy">© <span id="copyright-year">2026</span> Ubuntu Markets LLC & Ubuntu Villages 501c3 · Oakland, CA</p>
 </footer>
 
 <script>
@@ -530,6 +583,46 @@
   window.addEventListener('scroll', () => {
     document.querySelector('nav').style.padding = window.scrollY > 60 ? '0.75rem 4rem' : '1rem 4rem';
   });
+
+  // Dynamic copyright year
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+  // Async form submissions (Formspree)
+  function wireForm(formId, statusId, successMsg) {
+    const form = document.getElementById(formId);
+    const status = document.getElementById(statusId);
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (form.action.includes('REPLACE_WITH')) {
+        status.textContent = 'Form not yet configured. Please email contact@ubuntu-markets.org.';
+        status.style.color = 'var(--terra-light)';
+        return;
+      }
+      status.textContent = 'Sending…';
+      status.style.color = 'var(--cream-dim)';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.reset();
+          status.textContent = successMsg;
+          status.style.color = 'var(--sage-light)';
+        } else {
+          status.textContent = 'Something went wrong. Please email us directly.';
+          status.style.color = 'var(--terra-light)';
+        }
+      } catch (err) {
+        status.textContent = 'Network error. Please email us directly.';
+        status.style.color = 'var(--terra-light)';
+      }
+    });
+  }
+  wireForm('contact-form', 'contact-status', 'Thank you. We\'ll be in touch soon.');
+  wireForm('kindred-form', 'kindred-status', 'You\'re on the list. Welcome to the village.');
 </script>
 </body>
 </html>
