@@ -223,6 +223,11 @@
   .product-features li::before { content: '→'; position: absolute; left: 0; color: var(--card-accent, var(--gold)); font-size: 0.7rem; }
   .product-link { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--card-accent, var(--gold)); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.2s; }
   .product-link:hover { gap: 1rem; }
+  .product-stores { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .product-stores a { display: inline-flex; align-items: center; line-height: 0; transition: opacity 0.2s, transform 0.2s; }
+  .product-stores a:hover { opacity: 0.85; transform: translateY(-1px); }
+  .product-stores .badge-apple { height: 40px; width: auto; display: block; }
+  .product-stores .badge-google { height: 58px; width: auto; display: block; margin: -9px 0; } /* Google badge has built-in padding; trim to match Apple visual height */
   .product-number { position: absolute; bottom: 1.5rem; right: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
 
   /* ABOUT */
@@ -301,7 +306,7 @@
   "description": "Ubuntu Markets builds technology rooted in community — tools that honor heritage, connect generations, and build for the village.",
   "founder": [
     { "@type": "Person", "name": "Hodari Touré" },
-    { "@type": "Person", "name": "Shylah Touré" }
+    { "@type": "Person", "name": "Shylah Hamilton-Touré" }
   ],
   "address": {
     "@type": "PostalAddress",
@@ -376,7 +381,7 @@
 
 <div class="trust-strip reveal" style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);max-width:900px;margin:3rem auto 0;">
   <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--cream);line-height:1.6;letter-spacing:0.01em;">
-    Built in Oakland by Hodari and Shylah Touré. Three live apps. One ecosystem.
+    Built in Oakland by Hodari and Shylah Hamilton-Touré. Three live apps. One ecosystem.
   </p>
 </div>
 
@@ -386,7 +391,7 @@
     <div class="philosophy-word">Ubuntu<span>"I am because we are."</span></div>
   </div>
   <div class="reveal reveal-delay-2">
-    <p class="philosophy-body">Ubuntu is not a word — it is a way of being. <strong>It is the belief that our humanity is bound together.</strong> That no one rises alone. That a community's strength is the measure of its care for one another.<br><br>Everything we build begins here. Every product, every feature, every decision asks the same question: <strong>does this serve the village?</strong></p>
+    <p class="philosophy-body">Ubuntu is a way of being. <strong>It is the belief that our humanity is bound together.</strong> That no one rises alone. That a community's strength is the measure of its care for one another.<br><br>Everything we build begins here. Every product, every feature, every decision asks the same question: <strong>does this serve the village?</strong></p>
   </div>
 </section>
 
@@ -398,9 +403,9 @@
   <div class="products-grid">
 
     <!-- Legacy Table -->
-    <a href="https://legacytable.app/login" class="product-card terra reveal">
+    <div class="product-card terra reveal" data-href="https://legacytable.app/login">
       <div class="product-header">
-        <p class="product-tag">Live · iOS</p>
+        <p class="product-tag">Live · iOS · Android</p>
         <span class="product-org llc">Ubuntu Markets</span>
       </div>
       <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -418,14 +423,22 @@
         <li>Collaborative family cookbooks</li>
         <li>Heritage lineage mapping</li>
       </ul>
-      <span class="product-link">Explore Legacy Table →</span>
+      <div class="product-stores">
+        <a href="https://apps.apple.com/app/id6759821009" target="_blank" rel="noopener noreferrer" aria-label="Download Legacy Table on the App Store">
+          <img class="badge-apple" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.htrecipes.family_recipe_app" target="_blank" rel="noopener noreferrer" aria-label="Get Legacy Table on Google Play">
+          <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+        </a>
+      </div>
+      <a href="https://legacytable.app/login" class="product-link">Explore Legacy Table →</a>
       <div class="product-number">01</div>
-    </a>
+    </div>
 
     <!-- Kindred -->
-    <a href="https://heykindred.org" class="product-card teal reveal reveal-delay-2">
+    <div class="product-card teal reveal reveal-delay-2" data-href="https://heykindred.org">
       <div class="product-header">
-        <p class="product-tag">Live · iOS</p>
+        <p class="product-tag">Live · iOS · Android</p>
         <span class="product-org llc">Ubuntu Markets</span>
       </div>
       <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -449,14 +462,22 @@
         <li>QR invite links and member management</li>
         <li>Seed / Gather / Legacy pricing tiers</li>
       </ul>
-      <span class="product-link">Visit Kindred →</span>
+      <div class="product-stores">
+        <a href="https://apps.apple.com/app/heykindred/id6760608478" target="_blank" rel="noopener noreferrer" aria-label="Download Kindred on the App Store">
+          <img class="badge-apple" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.ubuntumarket.kindred" target="_blank" rel="noopener noreferrer" aria-label="Get Kindred on Google Play">
+          <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+        </a>
+      </div>
+      <a href="https://heykindred.org" class="product-link">Visit Kindred →</a>
       <div class="product-number">02</div>
-    </a>
+    </div>
 
     <!-- Ile Ubuntu -->
-    <a href="https://www.ile-ubuntu.org" class="product-card sage reveal reveal-delay-3">
+    <div class="product-card sage reveal reveal-delay-3" data-href="https://www.ile-ubuntu.org">
       <div class="product-header">
-        <p class="product-tag">Live · Web</p>
+        <p class="product-tag">Live · iOS · Android · Web</p>
         <span class="product-org c3">Ubuntu Villages</span>
       </div>
       <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -476,9 +497,17 @@
         <li>Community learning dashboards</li>
         <li>Built for Ubuntu Villages programs</li>
       </ul>
-      <span class="product-link">Visit Ile Ubuntu →</span>
+      <div class="product-stores">
+        <a href="https://apps.apple.com/app/id6761577413" target="_blank" rel="noopener noreferrer" aria-label="Download Ile Ubuntu on the App Store">
+          <img class="badge-apple" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.ubuntumarket.ileubuntu" target="_blank" rel="noopener noreferrer" aria-label="Get Ile Ubuntu on Google Play">
+          <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+        </a>
+      </div>
+      <a href="https://www.ile-ubuntu.org" class="product-link">Visit Ile Ubuntu →</a>
       <div class="product-number">03</div>
-    </a>
+    </div>
 
   </div>
 
@@ -519,7 +548,7 @@
         </div>
       </div>
       <div style="margin-top: 1.5rem;">
-        <p class="about-founders">Hodari & Shylah Touré</p>
+        <p class="about-founders">Hodari & Shylah Hamilton-Touré</p>
         <p class="about-founders-title">Co-Founders · Ubuntu Markets & Ubuntu Villages</p>
         <p class="about-founders-title" style="margin-top:0.6rem;font-size:0.78rem;line-height:1.55;opacity:0.85;">
           Hodari — Chief Innovation Officer, Hidden Genius Project<br>
@@ -531,7 +560,7 @@
   <div class="reveal reveal-delay-2">
     <p class="section-eyebrow">About Us</p>
     <h2 class="section-title" style="margin-bottom:0">Built from the<br><em>inside out.</em></h2>
-    <p class="about-body">Ubuntu Markets (LLC) and Ubuntu Villages (501c3) are <strong>Black-owned organizations</strong> co-founded in Oakland, CA by <strong>Hodari Touré</strong>, Chief Innovation Officer at the Hidden Genius Project, and <strong>Shylah Touré</strong>, Founding Executive Director of the Jambalaya Center for Ancient Mysteries and Sacred Arts. Together they form a single ecosystem — <em>innovation and tradition under one roof</em>.<br><br>We don't build apps for demographics. We build <strong>tools for families, for circles, for the village</strong> — technology that carries the weight and warmth of lived experience.</p>
+    <p class="about-body">Ubuntu Markets (LLC) and Ubuntu Villages (501c3) are <strong>Black-owned organizations</strong> co-founded in Oakland, CA by <strong>Hodari Touré</strong>, Chief Innovation Officer at the Hidden Genius Project, and <strong>Shylah Hamilton-Touré</strong>, Founding Executive Director of the Jambalaya Center for Ancient Mysteries and Sacred Arts. Together they form a single ecosystem — <em>innovation and tradition under one roof</em>.<br><br>We build <strong>tools for families, for circles, for the village</strong> — technology that carries the weight and warmth of lived experience.</p>
     <div class="about-values">
       <div class="value-item"><p class="value-name">Ubuntu</p><p class="value-desc">I am because we are. Every product begins here.</p></div>
       <div class="value-item" style="border-color:var(--terra)"><p class="value-name" style="color:var(--terra)">Legacy</p><p class="value-desc">We build for the generation not yet born.</p></div>
@@ -627,6 +656,15 @@
 
   // Dynamic copyright year
   document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+  // Whole-card click navigation for product cards (cards are <div> now so badge links can live inside).
+  // Clicks on inner <a> tags pass through and navigate to those links instead.
+  document.querySelectorAll('.product-card[data-href]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      window.location.href = card.dataset.href;
+    });
+  });
 
   // Async form submissions (Formspree)
   function wireForm(formId, statusId, successMsg) {
