@@ -279,6 +279,25 @@
   .reveal-delay-3 { transition-delay: 0.38s; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
+  /* CREDIBILITY STRIP */
+  .credibility-strip { padding: 3rem 4rem; border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); background: rgba(201,168,76,0.02); }
+  .credibility-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.75rem; align-items: center; }
+  .credibility-stats { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .cred-stat { display: flex; align-items: center; gap: 0.6rem; }
+  .cred-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 600; color: var(--gold); line-height: 1; }
+  .cred-stat-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); line-height: 1.3; }
+  .cred-divider { width: 1px; height: 2.5rem; background: rgba(201,168,76,0.2); }
+  .credibility-affiliations { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .cred-affil { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-dim); opacity: 0.7; transition: opacity 0.2s; }
+  .cred-affil:hover { opacity: 1; }
+  .cred-affil-dot { color: var(--gold-dim); margin: 0 0.25rem; }
+
+  /* PRODUCT CTA ENHANCEMENT */
+  .product-cta-row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-top: 0.75rem; }
+  .btn-download { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--card-accent, var(--gold)); color: var(--black); font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 0.6rem 1.25rem; border-radius: 2px; transition: opacity 0.2s, transform 0.2s; }
+  .btn-download:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-download svg { width: 14px; height: 14px; fill: currentColor; }
+
   @media (max-width: 1100px) {
     .products-grid { grid-template-columns: 1fr 1fr; }
   }
@@ -296,6 +315,12 @@
     .contact { padding: 5rem 2rem; }
     footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
     .hero-scroll-hint { left: 2rem; }
+    .credibility-strip { padding: 2rem 1.5rem; }
+    .credibility-stats { gap: 1.5rem; }
+    .cred-divider { height: 1.5rem; }
+    .credibility-affiliations { gap: 0.75rem; font-size: 0.65rem; }
+    .product-cta-row { flex-direction: column; align-items: stretch; }
+    .btn-download { justify-content: center; }
   }
 </style>
 <script type="application/ld+json">
@@ -383,10 +408,37 @@
   <span class="eco-label" style="color: var(--gold-dim); font-size: 0.78rem; font-style: italic;">One ecosystem. One mission.</span>
 </div>
 
-<div class="trust-strip reveal" style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);max-width:900px;margin:3rem auto 0;">
-  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--cream);line-height:1.6;letter-spacing:0.01em;">
-    Built in Oakland by Hodari and Shylah Hamilton-Touré. Three live apps. One ecosystem.
-  </p>
+<div class="credibility-strip reveal">
+  <div class="credibility-inner">
+    <div class="credibility-stats">
+      <div class="cred-stat">
+        <span class="cred-stat-num">3</span>
+        <span class="cred-stat-label">Live Apps<br>iOS & Android</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-stat">
+        <span class="cred-stat-num">2</span>
+        <span class="cred-stat-label">Entities<br>LLC + 501c3</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-stat">
+        <span class="cred-stat-num" style="font-size:1.2rem;">Oakland</span>
+        <span class="cred-stat-label">Founded<br>California</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-stat">
+        <span class="cred-stat-num" style="font-size:1rem;letter-spacing:0.05em;">Black-Owned</span>
+        <span class="cred-stat-label">Founder-Led<br>Community-Rooted</span>
+      </div>
+    </div>
+    <div class="credibility-affiliations">
+      <span class="cred-affil">Hidden Genius Project</span>
+      <span class="cred-affil-dot">·</span>
+      <span class="cred-affil">Jambalaya Center for Ancient Mysteries</span>
+      <span class="cred-affil-dot">·</span>
+      <span class="cred-affil">Est. 2024</span>
+    </div>
+  </div>
 </div>
 
 <section class="philosophy-strip">
@@ -435,7 +487,16 @@
           <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
         </a>
       </div>
-      <a href="https://legacytable.app/login" class="product-link">Explore Legacy Table →</a>
+      <div class="product-cta-row">
+        <a href="https://apps.apple.com/app/id6759821009" target="_blank" rel="noopener noreferrer" class="btn-download">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83"/><path d="M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+          Download Free
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.htrecipes.family_recipe_app" target="_blank" rel="noopener noreferrer" class="btn-download" style="background:transparent;border:1px solid var(--card-accent, var(--gold));color:var(--card-accent, var(--gold));">
+          Get on Android
+        </a>
+      </div>
+      <a href="https://legacytable.app/login" class="product-link" style="margin-top:1rem;">Explore Legacy Table →</a>
       <div class="product-number">01</div>
     </div>
 
@@ -474,7 +535,16 @@
           <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
         </a>
       </div>
-      <a href="https://heykindred.org" class="product-link">Visit Kindred →</a>
+      <div class="product-cta-row">
+        <a href="https://apps.apple.com/app/heykindred/id6760608478" target="_blank" rel="noopener noreferrer" class="btn-download">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83"/><path d="M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+          Download Free
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.ubuntumarket.kindred" target="_blank" rel="noopener noreferrer" class="btn-download" style="background:transparent;border:1px solid var(--card-accent, var(--gold));color:var(--card-accent, var(--gold));">
+          Get on Android
+        </a>
+      </div>
+      <a href="https://heykindred.org" class="product-link" style="margin-top:1rem;">Visit Kindred →</a>
       <div class="product-number">02</div>
     </div>
 
@@ -509,7 +579,16 @@
           <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
         </a>
       </div>
-      <a href="https://www.ile-ubuntu.org" class="product-link">Visit Ile Ubuntu →</a>
+      <div class="product-cta-row">
+        <a href="https://apps.apple.com/app/id6761577413" target="_blank" rel="noopener noreferrer" class="btn-download">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83"/><path d="M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+          Download Free
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.ubuntumarket.ileubuntu" target="_blank" rel="noopener noreferrer" class="btn-download" style="background:transparent;border:1px solid var(--card-accent, var(--gold));color:var(--card-accent, var(--gold));">
+          Get on Android
+        </a>
+      </div>
+      <a href="https://www.ile-ubuntu.org" class="product-link" style="margin-top:1rem;">Visit Ile Ubuntu →</a>
       <div class="product-number">03</div>
     </div>
 
