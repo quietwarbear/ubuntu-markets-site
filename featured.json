@@ -1,0 +1,33 @@
+{
+  "_comment": "Featured App of the Week on /blog/. Auto-rotates weekly through `apps` by ISO week number. Set `override` to an app id (ile-ubuntu | legacy-table | kindred) to pin one manually; set back to null to resume rotation.",
+  "override": null,
+  "apps": [
+    {
+      "id": "legacy-table",
+      "name": "Legacy Table",
+      "tagline": "Your family's recipes, in their own voices — preserved for every generation to come.",
+      "site": "https://legacytable.app",
+      "appStore": "https://apps.apple.com/app/id6759821009",
+      "playStore": "https://play.google.com/store/apps/details?id=com.htrecipes.family_recipe_app",
+      "color": "#C4622D"
+    },
+    {
+      "id": "ile-ubuntu",
+      "name": "Ilé Ubuntu",
+      "tagline": "A living learning commons — courses, cohorts, and community for the village that raises its young people.",
+      "site": "https://www.ile-ubuntu.org",
+      "appStore": "https://apps.apple.com/app/id6761577413",
+      "playStore": "https://play.google.com/store/apps/details?id=com.ubuntumarket.ileubuntu",
+      "color": "#2A9BAD"
+    },
+    {
+      "id": "kindred",
+      "name": "Kindred",
+      "tagline": "Gather your people — plan reunions, share memories, and keep kin connected.",
+      "site": "https://www.heykindred.org",
+      "appStore": "https://apps.apple.com/app/id6760608478",
+      "playStore": "https://play.google.com/store/apps/details?id=com.ubuntumarket.kindred",
+      "color": "#4FA88E"
+    }
+  ]
+}
