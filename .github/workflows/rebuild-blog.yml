@@ -1,0 +1,35 @@
+# Rebuilds /blog/ daily (and on demand) from the apps' public feeds, and
+# rotates the Featured App weekly. Apps can also "push": send a
+# repository_dispatch with event_type "blog-updated" when they publish.
+name: Rebuild village journal
+
+on:
+  schedule:
+    - cron: "0 9 * * *" # daily 09:00 UTC
+  workflow_dispatch:
+  repository_dispatch:
+    types: [blog-updated]
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/build-blog.mjs
+      - name: Commit if changed
+        run: |
+          git config user.name "village-journal-bot"
+          git config user.email "actions@github.com"
+          git add blog/index.html
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "journal: rebuild ($(date -u +%F))"
+            git push
+          fi
