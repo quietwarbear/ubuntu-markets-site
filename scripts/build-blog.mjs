@@ -139,6 +139,10 @@ const html = `<!DOCTYPE html>
   .card p { color:#6b6357; font-size:.9rem; line-height:1.55; flex:1; }
   .card-foot { display:flex; justify-content:space-between; align-items:center; font-size:.78rem; color:#a99f8e; }
   .readmore { color:var(--gold); text-decoration:none; letter-spacing:.04em; }
+  .soro { max-width:1080px; margin:2.5rem auto 0; padding:0 2rem; }
+  .grid-wrap { max-width:1080px; margin:2.5rem auto 0; padding:0 2rem; }
+  .grid-wrap .grid { margin:1rem auto 4rem; padding:0; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:500; margin-bottom:.6rem; }
   .empty { max-width:1080px; margin:3rem auto 5rem; padding:0 2rem; color:#6b6357; }
   footer { background:var(--black); color:var(--cream-dim); text-align:center; padding:2rem; font-size:.8rem; }
   footer a { color:var(--gold); text-decoration:none; }
@@ -175,7 +179,13 @@ const html = `<!DOCTYPE html>
   </div>
 </section>
 
-${posts.length ? `<section class="grid">\n${cards}\n</section>` : `<p class="empty">Fresh stories are on their way — meanwhile, meet this week's featured app above.</p>`}
+<section class="soro" aria-label="From the Ubuntu Markets desk">
+  <h2 class="section-title">From our desk</h2>
+  <div id="soro-blog"></div>
+  <script src="https://app.trysoro.com/api/embed/27cd0286-72c2-47e8-8617-7cb2a23b667b" defer></script>
+</section>
+
+${posts.length ? `<section class="grid-wrap"><h2 class="section-title">From around the village</h2><section class="grid">\n${cards}\n</section></section>` : `<p class="empty">Fresh stories are on their way — meanwhile, meet this week's featured app above.</p>`}
 
 <footer>Built with love in Oakland · <a href="/">Ubuntu Markets</a> · Legacy Table · Ilé Ubuntu · Kindred</footer>
 </body>
