@@ -256,6 +256,20 @@
   .products-intro { max-width: 64ch; margin: -2rem 0 3rem; color: var(--cream-dim); font-size: 1rem; line-height: 1.8; }
   .products-intro strong { color: var(--cream); font-weight: 500; }
 
+  /* CUSTOMER VOICE */
+  .customer-voice { padding: 0 4rem 7rem; }
+  .customer-voice-inner {
+    max-width: 1100px; margin: 0 auto; padding: 3.5rem;
+    border: 1px solid rgba(196,98,45,0.35); background: linear-gradient(135deg, rgba(196,98,45,0.09), rgba(201,168,76,0.035));
+    display: grid; grid-template-columns: minmax(10rem, .55fr) minmax(0, 1.45fr); gap: 3.5rem; align-items: center;
+  }
+  .customer-voice-kicker { color: var(--terra); font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; margin-bottom: .8rem; }
+  .customer-voice-product { font-family: 'Cormorant Garamond', serif; color: var(--white); font-size: 2rem; font-weight: 500; }
+  .customer-voice-quote { font-family: 'Cormorant Garamond', serif; color: var(--cream); font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.28; font-weight: 400; }
+  .customer-voice-meta { margin-top: 1.3rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; color: var(--cream-dim); font-size: .8rem; }
+  .customer-voice-meta a { color: var(--terra-light); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; }
+  .customer-voice-meta a:hover { text-decoration: underline; }
+
   /* FAQ */
   .faq { padding: 7rem 4rem; border-top: 1px solid rgba(201,168,76,0.1); }
   .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
@@ -362,6 +376,8 @@
     .product-preview { margin-left: -3rem; margin-right: -3rem; }
     .faq { padding: 5rem 2rem; }
     .faq-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .customer-voice { padding: 0 2rem 5rem; }
+    .customer-voice-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.25rem; }
   }
 </style>
 <script type="application/ld+json">
@@ -697,6 +713,22 @@
 
   </div>
 
+</section>
+
+<section class="customer-voice" aria-labelledby="customer-voice-title">
+  <div class="customer-voice-inner reveal">
+    <div>
+      <p class="customer-voice-kicker">From the Legacy Table community</p>
+      <h2 class="customer-voice-product" id="customer-voice-title">A recipe is never just a recipe.</h2>
+    </div>
+    <figure>
+      <blockquote class="customer-voice-quote">“Never think your recipes are ordinary. Every meal carries a story, culture, and legacy worth sharing.”</blockquote>
+      <figcaption class="customer-voice-meta">
+        <span>Jagila · Legacy Table customer</span>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7490290951018532864/?actorCompanyId=130903896" target="_blank" rel="noopener noreferrer">Watch her story on LinkedIn →</a>
+      </figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="faq" id="faq">

@@ -2,6 +2,14 @@
   "_comment": "Original Ubuntu Markets journal entries. Public app feeds are merged automatically by scripts/build-blog.mjs.",
   "posts": [
     {
+      "app": "legacy-table",
+      "title": "Community Voice: Every Meal Carries a Story",
+      "excerpt": "Legacy Table customer Jagila shares why family recipes are never ordinary — each one carries culture, memory, and a legacy worth preserving.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7490290951018532864/?actorCompanyId=130903896",
+      "published": "2026-08-04",
+      "cta": "Watch on LinkedIn →"
+    },
+    {
       "app": "kindred",
       "title": "A Family Reunion Planning Timeline That Leaves Room for Family",
       "excerpt": "A practical eight-week rhythm for invitations, RSVPs, shared responsibilities, the itinerary, and the stories you want to carry home.",
