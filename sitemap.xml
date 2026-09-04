@@ -2,9 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ubuntu-markets.org/</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url><loc>https://ubuntu-markets.org/blog/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ubuntu-markets.org/blog/</loc><lastmod>2026-09-04</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ubuntu-markets.org/blog/kindred/family-reunion-planning-timeline.html</loc><lastmod>2026-09-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubuntu-markets.org/blog/kindred/family-reunion-rsvp-questions.html</loc><lastmod>2026-09-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubuntu-markets.org/blog/ile-ubuntu/learning-commons-starts-with-belonging.html</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ubuntu-markets.org/blog/ile-ubuntu/community-centered-learning-questions.html</loc><lastmod>2026-09-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://ubuntu-markets.org/blog/">
 <link rel="icon" href="/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root { --black:#141210; --cream:#FDFCF9; --cream-dim:#C8BFB0; --gold:#C9A84C; --paper:#F5F0E8; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -48,6 +48,12 @@
   .soro { max-width:1080px; margin:2.5rem auto 0; padding:0 2rem; }
   .grid-wrap { max-width:1080px; margin:2.5rem auto 0; padding:0 2rem; }
   .grid-wrap .grid { margin:1rem auto 4rem; padding:0; }
+  .filters { display:flex; flex-wrap:wrap; gap:.65rem; margin:1rem 0 1.4rem; }
+  .filter { appearance:none; border:1px solid #D4C9B7; background:#fff; color:#4d463d; border-radius:999px; padding:.48rem .8rem; font:500 .78rem 'Outfit',sans-serif; cursor:pointer; }
+  .filter:hover, .filter[aria-pressed="true"] { border-color:var(--gold); background:var(--black); color:var(--cream); }
+  .filter-count { opacity:.7; margin-left:.25rem; }
+  .filter-status { color:#6b6357; font-size:.82rem; min-height:1.4em; }
+  .card[hidden] { display:none; }
   .section-title { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:500; margin-bottom:.6rem; }
   .empty { max-width:1080px; margin:3rem auto 5rem; padding:0 2rem; color:#6b6357; }
   footer { background:var(--black); color:var(--cream-dim); text-align:center; padding:2rem; font-size:.8rem; }
@@ -57,7 +63,7 @@
 </head>
 <body>
 <nav>
-  <a class="nav-logo" href="/"><img src="/icon.png" alt=""><span class="nav-logo-text">Ubuntu Markets<span>WE BUILD FOR THE VILLAGE</span></span></a>
+  <a class="nav-logo" href="/"><img src="/icon.png" alt="Ubuntu Markets logo"><span class="nav-logo-text">Ubuntu Markets<span>WE BUILD FOR THE VILLAGE</span></span></a>
   <ul class="nav-links">
     <li><a href="/#products">Products</a></li>
     <li><a href="/blog/">Journal</a></li>
@@ -67,7 +73,7 @@
 
 <header class="page">
   <h1>The Village Journal</h1>
-  <p>Stories and guides from across our family of apps — preserving recipes, raising learners, gathering kin. Every piece lives on its app's own site; this is the table where they're all served.</p>
+  <p>Useful stories and guides from Legacy Table, Kindred, and Ilé Ubuntu — preserving recipes, planning gatherings, and supporting community-centered learning.</p>
 </header>
 
 <section class="featured" aria-label="Featured app">
@@ -91,9 +97,57 @@
   <script src="https://app.trysoro.com/api/embed/27cd0286-72c2-47e8-8617-7cb2a23b667b" defer></script>
 </section>
 
-<section class="grid-wrap"><h2 class="section-title">From around the village</h2><section class="grid">
+<section class="grid-wrap"><h2 class="section-title">From around the village</h2>
+  <nav class="filters" aria-label="Filter journal stories by product">
+    <button class="filter" type="button" data-filter="all" aria-pressed="true">All stories <span class="filter-count">11</span></button>
+    <button class="filter" type="button" data-filter="legacy-table" aria-pressed="false">Legacy Table <span class="filter-count">7</span></button>
+    <button class="filter" type="button" data-filter="ile-ubuntu" aria-pressed="false">Ilé Ubuntu <span class="filter-count">2</span></button>
+    <button class="filter" type="button" data-filter="kindred" aria-pressed="false">Kindred <span class="filter-count">2</span></button>
+  </nav>
+  <p class="filter-status" id="filter-status" aria-live="polite"></p>
+  <section class="grid">
 
-      <article class="card">
+      <article class="card" data-app="kindred">
+        <span class="badge" style="--app:#4FA88E">Kindred</span>
+        <h3><a href="https://ubuntu-markets.org/blog/kindred/family-reunion-planning-timeline.html">A Family Reunion Planning Timeline That Leaves Room for Family</a></h3>
+        <p>A practical eight-week rhythm for invitations, RSVPs, shared responsibilities, the itinerary, and the stories you want to carry home.</p>
+        <div class="card-foot">
+          <time datetime="2026-09-04">2026-09-04</time>
+          <a class="readmore" href="https://ubuntu-markets.org/blog/kindred/family-reunion-planning-timeline.html">Read in the Journal →</a>
+        </div>
+      </article>
+
+      <article class="card" data-app="ile-ubuntu">
+        <span class="badge" style="--app:#2A9BAD">Ilé Ubuntu</span>
+        <h3><a href="https://ubuntu-markets.org/blog/ile-ubuntu/learning-commons-starts-with-belonging.html">A Learning Commons Starts with Belonging</a></h3>
+        <p>Before dashboards, assignments, or scores, learners need to know whose wisdom counts, how they contribute, and who will notice when they are missing.</p>
+        <div class="card-foot">
+          <time datetime="2026-09-03">2026-09-03</time>
+          <a class="readmore" href="https://ubuntu-markets.org/blog/ile-ubuntu/learning-commons-starts-with-belonging.html">Read in the Journal →</a>
+        </div>
+      </article>
+
+      <article class="card" data-app="kindred">
+        <span class="badge" style="--app:#4FA88E">Kindred</span>
+        <h3><a href="https://ubuntu-markets.org/blog/kindred/family-reunion-rsvp-questions.html">What to Ask on a Family Reunion RSVP</a></h3>
+        <p>Collect the details that make people feel expected and cared for without turning a family invitation into an exhausting intake form.</p>
+        <div class="card-foot">
+          <time datetime="2026-09-02">2026-09-02</time>
+          <a class="readmore" href="https://ubuntu-markets.org/blog/kindred/family-reunion-rsvp-questions.html">Read in the Journal →</a>
+        </div>
+      </article>
+
+      <article class="card" data-app="ile-ubuntu">
+        <span class="badge" style="--app:#2A9BAD">Ilé Ubuntu</span>
+        <h3><a href="https://ubuntu-markets.org/blog/ile-ubuntu/community-centered-learning-questions.html">Five Questions for Community-Centered Learning</a></h3>
+        <p>A short planning practice for educators who want learning experiences shaped by relationship, shared responsibility, reflection, and real contribution.</p>
+        <div class="card-foot">
+          <time datetime="2026-09-01">2026-09-01</time>
+          <a class="readmore" href="https://ubuntu-markets.org/blog/ile-ubuntu/community-centered-learning-questions.html">Read in the Journal →</a>
+        </div>
+      </article>
+
+      <article class="card" data-app="legacy-table">
         <span class="badge" style="--app:#C4622D">Legacy Table</span>
         <h3><a href="https://legacytable.app/guides/collect-family-recipes-at-the-reunion">How to Collect Family Recipes at the Reunion — While Everyone's at One Table</a></h3>
         <p>The family reunion is the one day the whole recipe archive is alive in one backyard. A gentle plan for collecting the dishes, the stories, and the voices — between the spades game and the second plate.</p>
@@ -103,7 +157,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-app="legacy-table">
         <span class="badge" style="--app:#C4622D">Legacy Table</span>
         <h3><a href="https://legacytable.app/guides/digitize-handwritten-recipe-cards.html">How to Digitize Handwritten Recipe Cards (Without Losing the Handwriting)</a></h3>
         <p>A step-by-step guide to digitizing handwritten recipe cards: photograph them right, transcribe them fast, and keep the handwriting as part of the heirloom.</p>
@@ -113,7 +167,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-app="legacy-table">
         <span class="badge" style="--app:#C4622D">Legacy Table</span>
         <h3><a href="https://legacytable.app/guides/how-to-make-a-family-cookbook.html">How to Make a Family Cookbook Everyone Actually Uses</a></h3>
         <p>From shoebox to heirloom: how to collect the recipes, gather the stories, get the whole family contributing, and print a family cookbook worth passing down.</p>
@@ -123,7 +177,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-app="legacy-table">
         <span class="badge" style="--app:#C4622D">Legacy Table</span>
         <h3><a href="https://legacytable.app/guides/how-to-preserve-family-recipes.html">How to Preserve Family Recipes — Before They're Lost</a></h3>
         <p>A practical 5-step method for preserving family recipes: capture the dish, the story, and the voice of the person who makes it — before it's too late.</p>
@@ -133,7 +187,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-app="legacy-table">
         <span class="badge" style="--app:#C4622D">Legacy Table</span>
         <h3><a href="https://legacytable.app/guides/questions-to-ask-the-family-cook.html">25 Questions to Ask the Family Cook (While You Still Can)</a></h3>
         <p>25 questions that turn a recipe interview into a family memory — about the dish, the hands that made it, and the tables it fed. Bring a recorder.</p>
@@ -143,7 +197,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-app="legacy-table">
         <span class="badge" style="--app:#C4622D">Legacy Table</span>
         <h3><a href="https://legacytable.app/guides/recipes-without-measurements.html">&quot;Until It Looks Right&quot;: Preserving Recipes That Have No Measurements</a></h3>
         <p>A pinch, a feel, until it looks like Louisiana — how to preserve family recipes that were never measured, from cooks who carry them by hand and by heart.</p>
@@ -153,7 +207,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-app="legacy-table">
         <span class="badge" style="--app:#C4622D">Legacy Table</span>
         <h3><a href="https://legacytable.app/guides/record-family-recipes-before-its-too-late.html">Record Family Recipes in Their Own Voice — Before It's Too Late</a></h3>
         <p>Why a 60-second voice recording preserves more of a family recipe than any written card — and how to run a 10-minute recording session with the cook you love.</p>
@@ -162,8 +216,28 @@
           <a class="readmore" href="https://legacytable.app/guides/record-family-recipes-before-its-too-late.html">Read on Legacy Table →</a>
         </div>
       </article>
-</section></section>
+  </section>
+</section>
 
 <footer>Built with love in Oakland · <a href="/">Ubuntu Markets</a> · Legacy Table · Ilé Ubuntu · Kindred</footer>
+<script>
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const storyCards = document.querySelectorAll('.card[data-app]');
+  const filterStatus = document.getElementById('filter-status');
+  filterButtons.forEach((button) => button.addEventListener('click', () => {
+    const selected = button.dataset.filter;
+    let visible = 0;
+    filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+    storyCards.forEach((card) => {
+      const show = selected === 'all' || card.dataset.app === selected;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    const label = button.childNodes[0].textContent.trim();
+    filterStatus.textContent = selected === 'all'
+      ? 'Showing all ' + visible + ' stories.'
+      : 'Showing ' + visible + ' ' + label + ' ' + (visible === 1 ? 'story' : 'stories') + '.';
+  }));
+</script>
 </body>
 </html>

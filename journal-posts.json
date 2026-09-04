@@ -1,0 +1,33 @@
+{
+  "_comment": "Original Ubuntu Markets journal entries. Public app feeds are merged automatically by scripts/build-blog.mjs.",
+  "posts": [
+    {
+      "app": "kindred",
+      "title": "A Family Reunion Planning Timeline That Leaves Room for Family",
+      "excerpt": "A practical eight-week rhythm for invitations, RSVPs, shared responsibilities, the itinerary, and the stories you want to carry home.",
+      "url": "https://ubuntu-markets.org/blog/kindred/family-reunion-planning-timeline.html",
+      "published": "2026-09-04"
+    },
+    {
+      "app": "ile-ubuntu",
+      "title": "A Learning Commons Starts with Belonging",
+      "excerpt": "Before dashboards, assignments, or scores, learners need to know whose wisdom counts, how they contribute, and who will notice when they are missing.",
+      "url": "https://ubuntu-markets.org/blog/ile-ubuntu/learning-commons-starts-with-belonging.html",
+      "published": "2026-09-03"
+    },
+    {
+      "app": "kindred",
+      "title": "What to Ask on a Family Reunion RSVP",
+      "excerpt": "Collect the details that make people feel expected and cared for without turning a family invitation into an exhausting intake form.",
+      "url": "https://ubuntu-markets.org/blog/kindred/family-reunion-rsvp-questions.html",
+      "published": "2026-09-02"
+    },
+    {
+      "app": "ile-ubuntu",
+      "title": "Five Questions for Community-Centered Learning",
+      "excerpt": "A short planning practice for educators who want learning experiences shaped by relationship, shared responsibility, reflection, and real contribution.",
+      "url": "https://ubuntu-markets.org/blog/ile-ubuntu/community-centered-learning-questions.html",
+      "published": "2026-09-01"
+    }
+  ]
+}

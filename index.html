@@ -18,23 +18,23 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ubuntu Markets — We Build for the Village</title>
-<meta name="description" content="Ubuntu Markets builds technology rooted in community — tools that honor heritage, connect generations, and build for the village.">
+<title>Ubuntu Markets — Apps for Families and Communities</title>
+<meta name="description" content="Black-founded in Oakland, Ubuntu Markets builds inclusive apps for family heritage, reunions, community learning, and mission-aligned partners.">
 <link rel="icon" type="image/png" sizes="512x512" href="/ubuntu_market_512.png">
 <link rel="apple-touch-icon" href="/ubuntu_market_512.png">
 <link rel="canonical" href="https://ubuntu-markets.org/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ubuntu-markets.org/">
 <meta property="og:site_name" content="Ubuntu Markets">
-<meta property="og:title" content="Ubuntu Markets — We Build for the Village">
-<meta property="og:description" content="Ubuntu Markets builds technology rooted in community — tools that honor heritage, connect generations, and build for the village.">
+<meta property="og:title" content="Ubuntu Markets — Apps for Families and Communities">
+<meta property="og:description" content="Preserve the stories. Gather your people. Help the next generation learn. Black-founded, rooted in Ubuntu, and open to the wider village.">
 <meta property="og:image" content="https://ubuntu-markets.org/image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ubuntu Markets — We Build for the Village">
-<meta name="twitter:description" content="Ubuntu Markets builds technology rooted in community — tools that honor heritage, connect generations, and build for the village.">
+<meta name="twitter:title" content="Ubuntu Markets — Apps for Families and Communities">
+<meta name="twitter:description" content="Preserve the stories. Gather your people. Help the next generation learn. Black-founded, rooted in Ubuntu, and open to the wider village.">
 <meta name="twitter:image" content="https://ubuntu-markets.org/image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -116,8 +116,8 @@
   .hero-eyebrow::before { content: ''; display: block; width: 2.5rem; height: 1px; background: var(--gold); }
   .hero-headline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 9vw, 8rem); font-weight: 300;
-    line-height: 1.0; color: var(--white); max-width: 14ch;
+    font-size: clamp(3.25rem, 7vw, 6.5rem); font-weight: 300;
+    line-height: 0.98; color: var(--white); max-width: 16ch;
     opacity: 0; animation: fadeUp 1s ease forwards 0.5s;
   }
   .hero-headline em { font-style: italic; color: var(--gold); }
@@ -230,6 +230,14 @@
   .product-org.c3 { color: var(--sage-light); border: 1px solid rgba(74,168,142,0.25); opacity: 0.8; }
 
   .product-icon { width: 48px; height: 48px; margin-bottom: 1.25rem; }
+  .product-preview {
+    height: 230px; margin: 0 -3rem 2rem; overflow: hidden;
+    border-top: 1px solid rgba(245,240,232,0.06);
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+    background: #0a0a12;
+  }
+  .product-preview img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .product-preview.contain img { object-fit: contain; }
   .product-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--white); margin-bottom: 0.35rem; line-height: 1.1; }
   .product-tagline { font-size: 1rem; color: var(--card-accent, var(--gold)); margin-bottom: 1rem; font-style: italic; font-family: 'Cormorant Garamond', serif; }
   .product-desc { font-size: 0.875rem; font-weight: 300; color: var(--cream-dim); line-height: 1.8; max-width: 36ch; margin-bottom: 1.75rem; }
@@ -244,6 +252,21 @@
   .product-stores .badge-apple { height: 40px; width: auto; display: block; }
   .product-stores .badge-google { height: 58px; width: auto; display: block; margin: -9px 0; } /* Google badge has built-in padding; trim to match Apple visual height */
   .product-number { position: absolute; bottom: 1.5rem; right: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; }
+
+  .products-intro { max-width: 64ch; margin: -2rem 0 3rem; color: var(--cream-dim); font-size: 1rem; line-height: 1.8; }
+  .products-intro strong { color: var(--cream); font-weight: 500; }
+
+  /* FAQ */
+  .faq { padding: 7rem 4rem; border-top: 1px solid rgba(201,168,76,0.1); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+  .faq-list { border-top: 1px solid rgba(201,168,76,0.18); }
+  .faq-item { border-bottom: 1px solid rgba(201,168,76,0.18); }
+  .faq-item summary { cursor: pointer; list-style: none; padding: 1.35rem 2.5rem 1.35rem 0; color: var(--white); font-size: 1rem; position: relative; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; position: absolute; right: 0; color: var(--gold); font-size: 1.4rem; font-weight: 300; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-answer { color: var(--cream-dim); font-size: 0.92rem; line-height: 1.8; padding: 0 2.5rem 1.35rem 0; }
+  .faq-answer a { color: var(--gold); }
 
   /* ABOUT */
   .about { padding: 7rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
@@ -336,32 +359,109 @@
     .credibility-affiliations { gap: 0.75rem; font-size: 0.65rem; }
     .product-cta-row { flex-direction: column; align-items: stretch; }
     .btn-download { justify-content: center; }
+    .product-preview { margin-left: -3rem; margin-right: -3rem; }
+    .faq { padding: 5rem 2rem; }
+    .faq-grid { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Ubuntu Markets",
-  "alternateName": "Ubuntu Markets LLC",
-  "url": "https://ubuntu-markets.org/",
-  "logo": "https://ubuntu-markets.org/ubuntu_market_512.png",
-  "email": "contact@ubuntu-markets.org",
-  "description": "Ubuntu Markets builds technology rooted in community — tools that honor heritage, connect generations, and build for the village.",
-  "founder": [
-    { "@type": "Person", "name": "Hodari Touré" },
-    { "@type": "Person", "name": "Shylah Hamilton-Touré" }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Oakland",
-    "addressRegion": "CA",
-    "addressCountry": "US"
-  },
-  "sameAs": [
-    "https://legacytable.app",
-    "https://heykindred.org",
-    "https://www.ile-ubuntu.org"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ubuntu-markets.org/#organization",
+      "name": "Ubuntu Markets",
+      "alternateName": "Ubuntu Markets LLC",
+      "url": "https://ubuntu-markets.org/",
+      "logo": "https://ubuntu-markets.org/ubuntu_market_512.png",
+      "email": "contact@ubuntu-markets.org",
+      "description": "A Black-founded Oakland technology company building inclusive digital tools for families, communities, and mission-aligned partners.",
+      "founder": [
+        { "@type": "Person", "name": "Hodari Touré" },
+        { "@type": "Person", "name": "Shylah Hamilton-Touré" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Oakland",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://legacytable.app",
+        "https://heykindred.org",
+        "https://www.ile-ubuntu.org"
+      ]
+    },
+    {
+      "@type": "NGO",
+      "@id": "https://ubuntu-markets.org/#ubuntu-villages",
+      "name": "Ubuntu Villages",
+      "nonprofitStatus": "Nonprofit501c3",
+      "description": "A Black-founded nonprofit supporting community-centered programs and learning experiences rooted in Ubuntu philosophy."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Legacy Table",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "A family recipe and heritage app for preserving recipes, stories, photos, and voice memories.",
+      "url": "https://legacytable.app",
+      "sameAs": [
+        "https://apps.apple.com/app/id6759821009",
+        "https://play.google.com/store/apps/details?id=com.htrecipes.family_recipe_app"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Kindred",
+      "applicationCategory": "EventApplication",
+      "operatingSystem": "iOS, Android",
+      "description": "A private family reunion planner for invitations, RSVPs, itineraries, planning, and shared memories.",
+      "url": "https://heykindred.org",
+      "sameAs": [
+        "https://apps.apple.com/app/heykindred/id6760608478",
+        "https://play.google.com/store/apps/details?id=com.ubuntumarket.kindred"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Ilé Ubuntu",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "description": "A community-centered classroom management platform for educators and young people.",
+      "url": "https://www.ile-ubuntu.org",
+      "sameAs": [
+        "https://apps.apple.com/app/id6761577413",
+        "https://play.google.com/store/apps/details?id=com.ubuntumarket.ileubuntu"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Mission-aligned technology design and development",
+      "provider": { "@id": "https://ubuntu-markets.org/#organization" },
+      "description": "Product and web development for organizations building useful, community-centered experiences."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who are Ubuntu Markets and Ubuntu Villages built to serve?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We are Black-founded and rooted in Black cultural experience, but our products and partnerships are open to families, educators, communities, and organizations of every background." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to use all three products together?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Legacy Table, Kindred, and Ilé Ubuntu each solve a distinct need and can be used independently." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Ubuntu Markets and Ubuntu Villages?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ubuntu Markets LLC leads commercial product innovation and client work. Ubuntu Villages is a 501(c)(3) nonprofit focused on community programs. They share founders, Ubuntu values, and a commitment to serving the village." }
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -375,7 +475,7 @@
   posthog.register({ product: 'marketing_site' });
 </script>
 </head>
-<body><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9M7B25Q"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) --><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9M7B25Q"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- Google Tag Manager (noscript) -->
+<body><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9M7B25Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
 <div class="stars" id="stars"></div>
 
 <nav>
@@ -409,9 +509,9 @@
     <path d="M110,200 Q140,230 200,200 Q140,170 110,200" stroke-width="0.8"/>
     <path d="M290,200 Q260,230 200,200 Q260,170 290,200" stroke-width="0.8"/>
   </svg>
-  <p class="hero-eyebrow">Ubuntu Markets LLC · Ubuntu Villages 501c3 · Oakland, CA</p>
-  <h1 class="hero-headline">We <em>build</em><br>for the<br>village.</h1>
-  <p class="hero-sub">Ubuntu Markets and Ubuntu Villages create digital tools rooted in Ubuntu philosophy — technology designed to connect, preserve, and advance Black families and communities across generations.</p>
+  <p class="hero-eyebrow">We build for the village.</p>
+  <h1 class="hero-headline">Preserve what <em>matters.</em><br>Gather your people.<br>Grow together.</h1>
+  <p class="hero-sub">Black-founded in Oakland and rooted in Ubuntu philosophy, we create digital tools for families, educators, and communities of every background. Built from lived Black experience and made to serve the wider village.</p>
   <div class="hero-actions">
     <a href="#products" class="btn-primary">Our Products</a>
     <a href="#work-with-us" class="btn-ghost">Work With Us</a>
@@ -439,7 +539,7 @@
     <div class="credibility-stats">
       <div class="cred-stat">
         <span class="cred-stat-num">3</span>
-        <span class="cred-stat-label">Live Apps<br>iOS & Android</span>
+        <span class="cred-stat-label">Live Apps<br>iOS &amp; Android</span>
       </div>
       <div class="cred-divider"></div>
       <div class="cred-stat">
@@ -480,7 +580,8 @@
 <section class="products" id="products">
   <div class="reveal">
     <p class="section-eyebrow">What We Build</p>
-    <h2 class="section-title">Three tools. One <em>ecosystem</em>.</h2>
+    <h2 class="section-title">One village. <em>Three tools.</em></h2>
+    <p class="products-intro"><strong>Preserve what matters with Legacy Table. Bring everyone together with Kindred. Support the next generation with Ilé Ubuntu.</strong> Each product stands on its own; together, they reflect how a village remembers, gathers, and grows.</p>
   </div>
   <div class="products-grid">
 
@@ -490,6 +591,7 @@
         <p class="product-tag">Live · iOS · Android</p>
         <span class="product-org llc">Ubuntu Markets</span>
       </div>
+      <div class="product-preview"><img src="/assets/legacy-table-preview.png" alt="Legacy Table preview showing a family sweet potato pie recipe preserved as an heirloom" loading="lazy"></div>
       <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="5" width="38" height="38" rx="7" stroke="#C4622D" stroke-width="1.5"/>
         <path d="M14 30 Q24 18 34 30" stroke="#C4622D" stroke-width="1.5" stroke-linecap="round"/>
@@ -523,6 +625,7 @@
         <p class="product-tag">Live · iOS · Android</p>
         <span class="product-org llc">Ubuntu Markets</span>
       </div>
+      <div class="product-preview contain"><img src="/assets/kindred-preview.png" alt="Kindred reunion planner showing a private family reunion setup screen" loading="lazy"></div>
       <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="24" cy="24" r="17" stroke="#2A9BAD" stroke-width="1.5"/>
         <circle cx="24" cy="24" r="7" stroke="#1B6B7A" stroke-width="1.5"/>
@@ -536,13 +639,13 @@
         <line x1="31" y1="24" x2="38.5" y2="24" stroke="#2A9BAD" stroke-width="1"/>
       </svg>
       <h3 class="product-name">Kindred</h3>
-      <p class="product-tagline">Where your circles gather and grow.</p>
-      <p class="product-desc">A closed-environment community gathering app built for the culture — family reunions, BGLO chapters, church communities, and beyond.</p>
+      <p class="product-tagline">Plan the reunion. Keep the memories.</p>
+      <p class="product-desc">A private family reunion planner for bringing everyone together — from the first invitation and RSVP to the itinerary, shared responsibilities, stories, and memories.</p>
       <ul class="product-features">
-        <li>Private circles with invite-only access</li>
-        <li>Event planning built for communities</li>
-        <li>QR invite links and member management</li>
-        <li>Seed / Gather / Legacy pricing tiers</li>
+        <li>Private, invitation-based reunion spaces</li>
+        <li>RSVPs, guest details, and family coordination</li>
+        <li>Multi-day itineraries and planning assignments</li>
+        <li>Stories and memories that remain after the reunion</li>
       </ul>
       <div class="product-stores">
         <a href="https://apps.apple.com/app/heykindred/id6760608478" target="_blank" rel="noopener noreferrer" aria-label="Download Kindred on the App Store">
@@ -562,6 +665,7 @@
         <p class="product-tag">Live · iOS · Android · Web</p>
         <span class="product-org c3">Ubuntu Villages</span>
       </div>
+      <div class="product-preview contain"><img src="/assets/ile-ubuntu-preview.png" alt="Ilé Ubuntu visual expressing the Ubuntu principle I am because we are" loading="lazy"></div>
       <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 20 L24 8 L40 20 L40 42 L8 42 Z" stroke="#4FA88E" stroke-width="1.5" stroke-linejoin="round"/>
         <rect x="18" y="30" width="12" height="12" rx="1" stroke="#3A7D6B" stroke-width="1.2"/>
@@ -593,6 +697,42 @@
 
   </div>
 
+</section>
+
+<section class="faq" id="faq">
+  <div class="faq-grid">
+    <div class="reveal">
+      <p class="section-eyebrow">Questions</p>
+      <h2 class="section-title" style="margin-bottom:1rem;">A wider village,<br><em>clearly explained.</em></h2>
+      <p class="products-intro" style="margin:0;">Our cultural roots shape how we build; they do not limit who is welcome to use what we create.</p>
+    </div>
+    <div class="faq-list reveal reveal-delay-2">
+      <details class="faq-item">
+        <summary>Who are Ubuntu Markets and Ubuntu Villages built to serve?</summary>
+        <p class="faq-answer">We are Black-founded and rooted in Black cultural experience, but our products and partnerships are open to families, educators, communities, and organizations of every background.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do Legacy Table, Kindred, and Ilé Ubuntu work together?</summary>
+        <p class="faq-answer">Legacy Table preserves family recipes and stories. Kindred helps families plan reunions and stay connected around them. Ilé Ubuntu supports community-centered learning. Each product can be used independently.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where can I use the products?</summary>
+        <p class="faq-answer">All three products are available on iOS and Android, and Ilé Ubuntu also supports the web. Use the App Store and Google Play buttons in each product card for the current download page.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is the difference between Ubuntu Markets and Ubuntu Villages?</summary>
+        <p class="faq-answer">Ubuntu Markets LLC leads commercial product innovation and client work. Ubuntu Villages is a 501(c)(3) nonprofit focused on community programs. They share founders, Ubuntu values, and a commitment to serving the village.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can my school, nonprofit, community, or business work with you?</summary>
+        <p class="faq-answer">Yes. We welcome product pilots, community partnerships, mission-aligned client work, and conversations with organizations exploring technology built around real human needs. <a href="#contact">Tell us what you are building.</a></p>
+      </details>
+      <details class="faq-item">
+        <summary>Where can I find privacy and account information?</summary>
+        <p class="faq-answer">Each product maintains its own current privacy, support, and account information. Visit the product website from its card above, or <a href="#contact">contact us</a> before an institutional pilot if you need additional documentation.</p>
+      </details>
+    </div>
+  </div>
 </section>
 
 <section class="products" id="client-work" style="padding-top:0;">
@@ -688,8 +828,8 @@
         </div>
       </div>
       <div style="margin-top: 1.5rem;">
-        <p class="about-founders">Hodari & Shylah Hamilton-Touré</p>
-        <p class="about-founders-title">Co-Founders · Ubuntu Markets & Ubuntu Villages</p>
+        <p class="about-founders">Hodari &amp; Shylah Hamilton-Touré</p>
+        <p class="about-founders-title">Co-Founders · Ubuntu Markets &amp; Ubuntu Villages</p>
         <p class="about-founders-title" style="margin-top:0.6rem;font-size:0.78rem;line-height:1.55;opacity:0.85;">
           Hodari — Chief Innovation Officer, Hidden Genius Project<br>
           Shylah — Founding Executive Director, Jambalaya Center for Ancient Mysteries and Sacred Arts
@@ -700,7 +840,7 @@
   <div class="reveal reveal-delay-2">
     <p class="section-eyebrow">About Us</p>
     <h2 class="section-title" style="margin-bottom:0">Built from the<br><em>inside out.</em></h2>
-    <p class="about-body">Ubuntu Markets (LLC) and Ubuntu Villages (501c3) are <strong>Black-owned organizations</strong> co-founded in Oakland, CA by <strong>Hodari Touré</strong>, Chief Innovation Officer at the Hidden Genius Project, and <strong>Shylah Hamilton-Touré</strong>, Founding Executive Director of the Jambalaya Center for Ancient Mysteries and Sacred Arts. Together they form a single ecosystem — <em>innovation and tradition under one roof</em>.<br><br>We build <strong>tools for families, for circles, for the village</strong> — technology that carries the weight and warmth of lived experience.</p>
+    <p class="about-body">Ubuntu Markets (LLC) and Ubuntu Villages (501c3) are <strong>Black-founded and Black-led organizations</strong> co-founded in Oakland, CA by <strong>Hodari Touré</strong>, Chief Innovation Officer at the Hidden Genius Project, and <strong>Shylah Hamilton-Touré</strong>, Founding Executive Director of the Jambalaya Center for Ancient Mysteries and Sacred Arts. Together they form one ecosystem — <em>innovation and tradition under one roof</em>.<br><br>Our roots matter, and so does our reach. We build <strong>tools for families, educators, communities, and the wider village</strong> — welcoming people of every background while carrying the weight and warmth of the experiences that shaped us.</p>
     <div class="about-values">
       <div class="value-item"><p class="value-name">Ubuntu</p><p class="value-desc">I am because we are. Every product begins here.</p></div>
       <div class="value-item" style="border-color:var(--terra)"><p class="value-name" style="color:var(--terra)">Legacy</p><p class="value-desc">We build for the generation not yet born.</p></div>
@@ -772,6 +912,7 @@
     <li><a href="#client-work">Client Work</a></li>
     <li><a href="/blog/">Journal</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="https://www.ile-ubuntu.org" target="_blank" rel="noopener noreferrer">Ile Ubuntu</a></li>
     <li><a href="mailto:contact@ubuntu-markets.org">Contact</a></li>
   </ul>
@@ -786,7 +927,7 @@
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
     </a>
   </div>
-  <p class="footer-copy">© <span id="copyright-year">2026</span> Ubuntu Markets LLC & Ubuntu Villages 501c3 · Oakland, CA</p>
+  <p class="footer-copy">© <span id="copyright-year">2026</span> Ubuntu Markets LLC &amp; Ubuntu Villages 501c3 · Oakland, CA</p>
 </footer>
 
 <script>
@@ -816,6 +957,19 @@
     card.addEventListener('click', (e) => {
       if (e.target.closest('a')) return;
       window.location.href = card.dataset.href;
+    });
+  });
+
+  // Measure product discovery without collecting form contents or other personal data.
+  document.querySelectorAll('.product-stores a, .product-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const card = link.closest('.product-card');
+      const product = card?.querySelector('.product-name')?.textContent?.trim() || 'Unknown';
+      const destination = link.closest('.product-stores')
+        ? (link.href.includes('apple.com') ? 'App Store' : 'Google Play')
+        : 'Product website';
+      if (window.posthog?.capture) window.posthog.capture('product_destination_clicked', { product, destination });
+      if (typeof window.gtag === 'function') window.gtag('event', 'product_destination_clicked', { product, destination });
     });
   });
 

@@ -1,8 +1,9 @@
 /* Builds blog/index.html — the cross-app journal for ubuntu-markets.org.
  *
- * Aggregates each product's public content as EXCERPT CARDS that link to the
- * original post on the app's own domain (never full copies — the apps keep
- * the canonical URL, the ranking, and the visitor). Also renders the
+ * Aggregates each product's public content as EXCERPT CARDS and combines it
+ * with Ubuntu Markets editorial entries from journal-posts.json. Remote
+ * entries keep their product-site canonical URL; local entries have complete
+ * articles under /blog/. Also renders the
  * Featured App of the Week, auto-rotated by ISO week via featured.json
  * (set "override" there to pin one).
  *
@@ -15,6 +16,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const featuredCfg = JSON.parse(readFileSync(path.join(ROOT, 'featured.json'), 'utf8'));
+const editorialCfg = JSON.parse(readFileSync(path.join(ROOT, 'journal-posts.json'), 'utf8'));
 
 const esc = (s) => String(s || '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -42,6 +44,7 @@ async function ileUbuntuPosts() {
     excerpt: (p.excerpt || p.content || '').replace(/<[^>]*>/g, '').slice(0, 220),
     url: `https://www.ile-ubuntu.org/blog/${p.slug}`,
     published: (p.created_at || '').slice(0, 10),
+    cta: `Read on ${app.name} →`,
   }));
 }
 
@@ -52,11 +55,28 @@ async function legacyTableGuides() {
     app: 'legacy-table', appName: app.name, color: app.color,
     title: g.title, excerpt: (g.description || '').slice(0, 220),
     url: g.url, published: g.published || '',
+    cta: `Read on ${app.name} →`,
   }));
 }
 
-// Kindred joins here the day it has a public feed.
-const SOURCES = [ileUbuntuPosts, legacyTableGuides];
+function editorialPosts() {
+  return (editorialCfg.posts || []).map((p) => {
+    const app = featuredCfg.apps.find((candidate) => candidate.id === p.app);
+    if (!app) throw new Error(`[blog] unknown editorial app: ${p.app}`);
+    return {
+      ...p,
+      app: app.id,
+      appName: app.name,
+      color: app.color,
+      cta: p.cta || 'Read in the Journal →',
+    };
+  });
+}
+
+// Kindred editorial entries live locally until the app exposes a public feed.
+// Ilé Ubuntu's public feed remains connected and joins automatically whenever
+// an editor publishes a public post there.
+const SOURCES = [editorialPosts, ileUbuntuPosts, legacyTableGuides];
 
 // ---- Featured app: manual override, else ISO-week rotation
 function isoWeek(d = new Date()) {
@@ -76,19 +96,20 @@ function pickFeatured() {
 
 // ---- Render
 
-const posts = (await Promise.all(SOURCES.map((s) => s()))).flat().filter(Boolean)
+const allPosts = (await Promise.all(SOURCES.map((s) => s()))).flat().filter(Boolean);
+const posts = [...new Map(allPosts.map((post) => [post.url, post])).values()]
   .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
 const featured = pickFeatured();
 const today = new Date().toISOString().slice(0, 10);
 
 const cards = posts.map((p) => `
-      <article class="card">
+      <article class="card" data-app="${esc(p.app)}">
         <span class="badge" style="--app:${p.color}">${esc(p.appName)}</span>
         <h3><a href="${esc(p.url)}">${esc(p.title)}</a></h3>
         <p>${esc(p.excerpt)}${p.excerpt.length >= 220 ? '…' : ''}</p>
         <div class="card-foot">
           ${p.published ? `<time datetime="${esc(p.published)}">${esc(p.published)}</time>` : '<span></span>'}
-          <a class="readmore" href="${esc(p.url)}">Read on ${esc(p.appName)} →</a>
+          <a class="readmore" href="${esc(p.url)}">${esc(p.cta)}</a>
         </div>
       </article>`).join('\n');
 
@@ -106,7 +127,7 @@ const html = `<!DOCTYPE html>
 <meta property="og:url" content="https://ubuntu-markets.org/blog/">
 <link rel="icon" href="/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root { --black:#141210; --cream:#FDFCF9; --cream-dim:#C8BFB0; --gold:#C9A84C; --paper:#F5F0E8; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -142,6 +163,12 @@ const html = `<!DOCTYPE html>
   .soro { max-width:1080px; margin:2.5rem auto 0; padding:0 2rem; }
   .grid-wrap { max-width:1080px; margin:2.5rem auto 0; padding:0 2rem; }
   .grid-wrap .grid { margin:1rem auto 4rem; padding:0; }
+  .filters { display:flex; flex-wrap:wrap; gap:.65rem; margin:1rem 0 1.4rem; }
+  .filter { appearance:none; border:1px solid #D4C9B7; background:#fff; color:#4d463d; border-radius:999px; padding:.48rem .8rem; font:500 .78rem 'Outfit',sans-serif; cursor:pointer; }
+  .filter:hover, .filter[aria-pressed="true"] { border-color:var(--gold); background:var(--black); color:var(--cream); }
+  .filter-count { opacity:.7; margin-left:.25rem; }
+  .filter-status { color:#6b6357; font-size:.82rem; min-height:1.4em; }
+  .card[hidden] { display:none; }
   .section-title { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:500; margin-bottom:.6rem; }
   .empty { max-width:1080px; margin:3rem auto 5rem; padding:0 2rem; color:#6b6357; }
   footer { background:var(--black); color:var(--cream-dim); text-align:center; padding:2rem; font-size:.8rem; }
@@ -151,7 +178,7 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
 <nav>
-  <a class="nav-logo" href="/"><img src="/icon.png" alt=""><span class="nav-logo-text">Ubuntu Markets<span>WE BUILD FOR THE VILLAGE</span></span></a>
+  <a class="nav-logo" href="/"><img src="/icon.png" alt="Ubuntu Markets logo"><span class="nav-logo-text">Ubuntu Markets<span>WE BUILD FOR THE VILLAGE</span></span></a>
   <ul class="nav-links">
     <li><a href="/#products">Products</a></li>
     <li><a href="/blog/">Journal</a></li>
@@ -161,7 +188,7 @@ const html = `<!DOCTYPE html>
 
 <header class="page">
   <h1>The Village Journal</h1>
-  <p>Stories and guides from across our family of apps — preserving recipes, raising learners, gathering kin. Every piece lives on its app's own site; this is the table where they're all served.</p>
+  <p>Useful stories and guides from Legacy Table, Kindred, and Ilé Ubuntu — preserving recipes, planning gatherings, and supporting community-centered learning.</p>
 </header>
 
 <section class="featured" aria-label="Featured app">
@@ -185,9 +212,35 @@ const html = `<!DOCTYPE html>
   <script src="https://app.trysoro.com/api/embed/27cd0286-72c2-47e8-8617-7cb2a23b667b" defer></script>
 </section>
 
-${posts.length ? `<section class="grid-wrap"><h2 class="section-title">From around the village</h2><section class="grid">\n${cards}\n</section></section>` : `<p class="empty">Fresh stories are on their way — meanwhile, meet this week's featured app above.</p>`}
+${posts.length ? `<section class="grid-wrap"><h2 class="section-title">From around the village</h2>
+  <nav class="filters" aria-label="Filter journal stories by product">
+    <button class="filter" type="button" data-filter="all" aria-pressed="true">All stories <span class="filter-count">${posts.length}</span></button>
+    ${featuredCfg.apps.map((app) => `<button class="filter" type="button" data-filter="${esc(app.id)}" aria-pressed="false">${esc(app.name)} <span class="filter-count">${posts.filter((p) => p.app === app.id).length}</span></button>`).join('\n    ')}
+  </nav>
+  <p class="filter-status" id="filter-status" aria-live="polite"></p>
+  <section class="grid">\n${cards}\n  </section>
+</section>` : `<p class="empty">Fresh stories are on their way — meanwhile, meet this week's featured app above.</p>`}
 
 <footer>Built with love in Oakland · <a href="/">Ubuntu Markets</a> · Legacy Table · Ilé Ubuntu · Kindred</footer>
+<script>
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const storyCards = document.querySelectorAll('.card[data-app]');
+  const filterStatus = document.getElementById('filter-status');
+  filterButtons.forEach((button) => button.addEventListener('click', () => {
+    const selected = button.dataset.filter;
+    let visible = 0;
+    filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+    storyCards.forEach((card) => {
+      const show = selected === 'all' || card.dataset.app === selected;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    const label = button.childNodes[0].textContent.trim();
+    filterStatus.textContent = selected === 'all'
+      ? 'Showing all ' + visible + ' stories.'
+      : 'Showing ' + visible + ' ' + label + ' ' + (visible === 1 ? 'story' : 'stories') + '.';
+  }));
+</script>
 </body>
 </html>
 `;
