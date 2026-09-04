@@ -117,9 +117,10 @@
   .hero-headline {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3.25rem, 7vw, 6.5rem); font-weight: 300;
-    line-height: 0.98; color: var(--white); max-width: 16ch;
+    line-height: 0.94; color: var(--white); max-width: 20ch;
     opacity: 0; animation: fadeUp 1s ease forwards 0.5s;
   }
+  .hero-headline-line { display: block; }
   .hero-headline em { font-style: italic; color: var(--gold); }
   .hero-sub {
     max-width: 44ch; font-size: 1.05rem; font-weight: 300;
@@ -353,6 +354,9 @@
   @media (max-width: 1100px) {
     .products-grid { grid-template-columns: 1fr 1fr; }
   }
+  @media (min-width: 1101px) {
+    .hero-headline-line { white-space: nowrap; }
+  }
   @media (max-width: 900px) {
     nav { padding: 1rem 2rem; }
     .nav-links { display: none; }
@@ -526,7 +530,11 @@
     <path d="M290,200 Q260,230 200,200 Q260,170 290,200" stroke-width="0.8"/>
   </svg>
   <p class="hero-eyebrow">We build for the village.</p>
-  <h1 class="hero-headline">Preserve what <em>matters.</em><br>Gather your people.<br>Grow together.</h1>
+  <h1 class="hero-headline">
+    <span class="hero-headline-line">Preserve what <em>matters.</em></span>
+    <span class="hero-headline-line">Gather your people.</span>
+    <span class="hero-headline-line">Grow together.</span>
+  </h1>
   <p class="hero-sub">Black-founded in Oakland and rooted in Ubuntu philosophy, we create digital tools for families, educators, and communities of every background. Built from lived Black experience and made to serve the wider village.</p>
   <div class="hero-actions">
     <a href="#products" class="btn-primary">Our Products</a>
