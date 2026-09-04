@@ -7,3 +7,12 @@ Thumbs.db
 .vscode/
 *.swp
 *~
+
+# Internal campaign planning and raw creative kept outside the public site
+/AI video 1 for I want to advertise the release of three new brand apps; Ile Ubuntu, Kindred, Legacy Table.mp4
+/Ubuntu_Markets_Campaign_Plan.docx
+/Ubuntu_Markets_Launch_Social_Posts.docx
+/Ubuntu_Markets_Revenue_Share.xlsx
+/Ubuntu_Markets_Web_Audit.docx
+/image-1.png
+/ubuntu_markets_flyer.html
