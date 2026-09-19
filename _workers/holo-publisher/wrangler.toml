@@ -1,0 +1,12 @@
+name = "holo-publisher"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+GITHUB_REPO = "quietwarbear/ubuntu-markets-site"
+BASE_BRANCH = "main"
+
+# Secrets — set with `npx wrangler secret put <NAME>`, never commit them:
+#   GITHUB_TOKEN          fine-grained token, this repo only: Contents + Pull requests (read & write)
+#   HOLO_WEBHOOK_SECRET   shown once by Holo when you connect the webhook (HMAC mode)
