@@ -4,7 +4,7 @@
  * with Ubuntu Markets editorial entries from journal-posts.json. Remote
  * entries keep their product-site canonical URL; local entries have complete
  * articles under /blog/. Also renders the
- * Featured App of the Week, auto-rotated by ISO week via featured.json
+ * Featured App of the Month, auto-rotated by calendar month via featured.json
  * (set "override" there to pin one).
  *
  * Run: node scripts/build-blog.mjs   (Node 18+; no dependencies)
@@ -78,20 +78,19 @@ function editorialPosts() {
 // an editor publishes a public post there.
 const SOURCES = [editorialPosts, ileUbuntuPosts, legacyTableGuides];
 
-// ---- Featured app: manual override, else ISO-week rotation
-function isoWeek(d = new Date()) {
-  const date = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
-  const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
-  return Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
+// ---- Featured app: manual override, else monthly rotation (UTC calendar month)
+function monthIndex(d = new Date()) {
+  return d.getUTCFullYear() * 12 + d.getUTCMonth();
 }
+
+const featuredMonth = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 function pickFeatured() {
   if (featuredCfg.override) {
     const found = featuredCfg.apps.find((a) => a.id === featuredCfg.override);
     if (found) return found;
   }
-  return featuredCfg.apps[isoWeek() % featuredCfg.apps.length];
+  return featuredCfg.apps[monthIndex() % featuredCfg.apps.length];
 }
 
 // ---- Render
@@ -197,7 +196,7 @@ const html = `<!DOCTYPE html>
 <section class="featured" aria-label="Featured app">
   <div class="featured-inner">
     <div>
-      <div class="featured-label">Featured App · Week of ${today}</div>
+      <div class="featured-label">Featured App · ${featuredMonth}</div>
       <h2>${esc(featured.name)}</h2>
       <p>${esc(featured.tagline)}</p>
     </div>
@@ -222,7 +221,7 @@ ${posts.length ? `<section class="grid-wrap"><h2 class="section-title">From arou
   </nav>
   <p class="filter-status" id="filter-status" aria-live="polite"></p>
   <section class="grid">\n${cards}\n  </section>
-</section>` : `<p class="empty">Fresh stories are on their way — meanwhile, meet this week's featured app above.</p>`}
+</section>` : `<p class="empty">Fresh stories are on their way — meanwhile, meet this month's featured app above.</p>`}
 
 <footer>Built with love in Oakland · <a href="/">Ubuntu Markets</a> · Legacy Table · Ilé Ubuntu · Kindred</footer>
 <script>

@@ -1,5 +1,5 @@
 {
-  "_comment": "Featured App of the Week on /blog/. Auto-rotates weekly through `apps` by ISO week number. Set `override` to an app id (ile-ubuntu | legacy-table | kindred) to pin one manually; set back to null to resume rotation.",
+  "_comment": "Featured App of the Month on /blog/. Auto-rotates monthly through `apps` by calendar month (UTC). Set `override` to an app id (ile-ubuntu | legacy-table | kindred) to pin one manually; set back to null to resume rotation.",
   "override": null,
   "apps": [
     {
