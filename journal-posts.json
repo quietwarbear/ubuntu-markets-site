@@ -2,6 +2,20 @@
   "_comment": "Original Ubuntu Markets journal entries. Public app feeds are merged automatically by scripts/build-blog.mjs.",
   "posts": [
     {
+      "app": "kindred",
+      "title": "10 Ways to Bring Extended Family Into One Private Reunion Space",
+      "excerpt": "One invitation-only place to RSVP, claim a dish, sign up to help, and keep the photos and stories — instead of chasing forty people across group texts.",
+      "url": "https://ubuntu-markets.org/blog/kindred/private-family-reunion-space-extended-family.html",
+      "published": "2026-09-18"
+    },
+    {
+      "app": "kindred",
+      "title": "How to Plan a Family Reunion Potluck That Actually Feeds Everyone",
+      "excerpt": "Count heads first, give the meal a structure, let everyone claim a specific dish, and fill the gaps deliberately — a step-by-step plan for the shared table.",
+      "url": "https://ubuntu-markets.org/blog/kindred/how-to-plan-a-family-reunion-potluck.html",
+      "published": "2026-09-22"
+    },
+    {
       "app": "legacy-table",
       "title": "Community Voice: Every Meal Carries a Story",
       "excerpt": "Legacy Table customer Jagila shares why family recipes are never ordinary — each one carries culture, memory, and a legacy worth preserving.",
