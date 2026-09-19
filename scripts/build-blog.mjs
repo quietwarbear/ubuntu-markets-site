@@ -96,11 +96,14 @@ function pickFeatured() {
 
 // ---- Render
 
+const today = new Date().toISOString().slice(0, 10);
 const allPosts = (await Promise.all(SOURCES.map((s) => s()))).flat().filter(Boolean);
+// A post dated after today is queued: it stays off the journal until the daily
+// rebuild (09:00 UTC) on or after its date. Its article page can already exist.
 const posts = [...new Map(allPosts.map((post) => [post.url, post])).values()]
+  .filter((post) => !post.published || post.published <= today)
   .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
 const featured = pickFeatured();
-const today = new Date().toISOString().slice(0, 10);
 
 const cards = posts.map((p) => `
       <article class="card" data-app="${esc(p.app)}">
