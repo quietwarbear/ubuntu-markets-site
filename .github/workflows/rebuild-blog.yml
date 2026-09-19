@@ -7,6 +7,11 @@ on:
   schedule:
     - cron: "0 9 * * *" # daily 09:00 UTC
   workflow_dispatch:
+  # A merged post (by hand or from the Holo publisher) lists immediately.
+  # The rebuild only commits blog/index.html, so this cannot loop.
+  push:
+    branches: [main]
+    paths: [journal-posts.json]
   repository_dispatch:
     types: [blog-updated]
 
