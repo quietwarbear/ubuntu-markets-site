@@ -325,6 +325,76 @@
   .footer-social a:hover { color: var(--gold); }
   .footer-social svg { width: 20px; height: 20px; fill: currentColor; }
 
+
+  /* ============ Keep The Record campaign band ============
+     Uses the site's own tokens (--deep, --gold, --cream) so the band reads as part
+     of Ubuntu Markets. The gold top rule is the campaign's signature and is the same
+     on legacytable.app and heykindred.org, so the band is recognisable across all three. */
+  .ktr-band {
+    --ktr-ink-2: #16162A;
+    position: relative; isolation: isolate;
+    background: var(--deep); color: var(--cream);
+    border-top: 3px solid var(--gold);
+    border-bottom: 1px solid rgba(201,168,76,0.28);
+    padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+    overflow: hidden;
+  }
+  .ktr-band::before {
+    content: ''; position: absolute; inset: -40% 55% auto -15%; height: 140%;
+    background: radial-gradient(closest-side, rgba(201,168,76,0.16), transparent 70%);
+    pointer-events: none; z-index: -1;
+  }
+  .ktr-inner { max-width: 1100px; margin: 0 auto; }
+  .ktr-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.55rem; margin-bottom: 1.1rem;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 600; color: var(--gold-light);
+  }
+  .ktr-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--gold);
+    box-shadow: 0 0 0 0 rgba(201,168,76,0.75); animation: ktrPulse 2.4s ease-out infinite;
+  }
+  @keyframes ktrPulse { 70% { box-shadow: 0 0 0 9px rgba(201,168,76,0); } 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); } }
+  @media (prefers-reduced-motion: reduce) { .ktr-dot { animation: none; } }
+  .ktr-name {
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-size: clamp(2rem, 5.5vw, 3.2rem); line-height: 1.02; letter-spacing: -0.02em; margin: 0;
+  }
+  .ktr-tagline {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+    font-size: clamp(1rem, 2.3vw, 1.4rem); color: var(--gold-light); margin: 0.45rem 0 0;
+  }
+  .ktr-body { margin: 1.15rem 0 0; max-width: 62ch; font-size: clamp(0.95rem, 1.5vw, 1.05rem); line-height: 1.65; color: var(--cream-dim); }
+  .ktr-meters { display: flex; flex-wrap: wrap; gap: clamp(1.25rem, 4vw, 3rem); margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(245,240,232,0.14); }
+  .ktr-meter { display: flex; flex-direction: column; gap: 0.2rem; }
+  .ktr-meter-value { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(1.45rem, 3.2vw, 1.95rem); color: var(--gold); line-height: 1; font-variant-numeric: tabular-nums; }
+  .ktr-meter-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-dim); }
+  .ktr-lanes { display: grid; gap: 1rem; margin-top: 2rem; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); }
+  .ktr-lane { background: var(--ktr-ink-2); border: 1px solid rgba(201,168,76,0.22); border-radius: 2px; padding: 1.15rem 1.25rem; }
+  .ktr-lane-app { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .ktr-lane-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.1rem; margin: 0.35rem 0 0.4rem; }
+  .ktr-lane-what { margin: 0; font-size: 0.91rem; line-height: 1.55; color: var(--cream-dim); }
+  .ktr-lane-tag { display: inline-block; margin-top: 0.7rem; font-size: 0.79rem; font-weight: 600; color: var(--gold-light); }
+  .ktr-lane-link { display: block; margin-top: 0.7rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; color: var(--gold); border-bottom: 1px solid rgba(201,168,76,0.45); padding-bottom: 2px; width: fit-content; transition: color 0.2s, border-color 0.2s; }
+  .ktr-lane-link:hover { color: var(--gold-light); border-color: var(--gold-light); }
+  .ktr-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 2rem; }
+  .ktr-primary, .ktr-secondary {
+    display: inline-block; text-decoration: none; border-radius: 2px;
+    font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; padding: 0.85rem 1.7rem;
+    transition: background 0.2s, transform 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .ktr-primary { background: var(--gold); color: var(--black); }
+  .ktr-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .ktr-secondary { color: var(--cream); border: 1px solid rgba(245,240,232,0.35); }
+  .ktr-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+  .ktr-primary:focus-visible, .ktr-secondary:focus-visible, .ktr-lane-link:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { .ktr-primary:hover { transform: none; } }
+  .ktr-fine { margin-top: 1.15rem; font-size: 0.82rem; line-height: 1.6; color: var(--cream-dim); }
+  .ktr-code { font-family: ui-monospace, Menlo, monospace; background: rgba(201,168,76,0.16); color: var(--gold-light); padding: 0.14em 0.5em; border-radius: 2px; font-weight: 600; }
+  .ktr-umbrella { color: var(--gold-light); font-weight: 600; }
+  .ktr-closed { margin-top: 1.4rem; font-size: 1.02rem; color: var(--gold-light); }
+
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: none; }
   .reveal-delay-1 { transition-delay: 0.1s; }
@@ -557,6 +627,52 @@
   <div class="eco-divider"></div>
   <span class="eco-label" style="color: var(--gold-dim); font-size: 0.78rem; font-style: italic;">One ecosystem. One mission.</span>
 </div>
+
+
+<!-- ============ Keep The Record campaign band ============
+     Content comes from /keep-the-record.json in this repo — the single source of
+     truth that legacytable.app and heykindred.org also read. Edit that file, not
+     this markup. The markup below is the fallback shown if the fetch fails.
+     To remove the band from every site: set "visible": false in that JSON. -->
+<section class="ktr-band reveal" id="ktr-band" aria-labelledby="ktr-heading">
+  <div class="ktr-inner">
+    <p class="ktr-eyebrow"><span class="ktr-dot" aria-hidden="true"></span><span id="ktr-eyebrow-text">Now live · Open worldwide</span></p>
+    <h2 id="ktr-heading" class="ktr-name">Keep The Record</h2>
+    <p class="ktr-tagline">The stories don't keep themselves.</p>
+    <p class="ktr-body">Cook the recipe with the elder who holds it. Plan the gathering that brings everyone home. Post it, tag it, and you're in the running.</p>
+
+    <div class="ktr-meters">
+      <div class="ktr-meter"><span class="ktr-meter-value" id="ktr-pool">$1,000</span><span class="ktr-meter-label">Prize pool</span></div>
+      <div class="ktr-meter"><span class="ktr-meter-value">3</span><span class="ktr-meter-label">Families win</span></div>
+      <div class="ktr-meter"><span class="ktr-meter-value" id="ktr-days">—</span><span class="ktr-meter-label" id="ktr-days-label">Days to enter</span></div>
+      <div class="ktr-meter"><span class="ktr-meter-value" id="ktr-close">December 6</span><span class="ktr-meter-label">Entries close</span></div>
+    </div>
+
+    <div class="ktr-lanes">
+      <div class="ktr-lane">
+        <span class="ktr-lane-app">Legacy Table</span>
+        <h3 class="ktr-lane-title">Set the table</h3>
+        <p class="ktr-lane-what">Cook a recipe you've saved in Legacy Table with the elder who taught it. Film it. Tag it.</p>
+        <span class="ktr-lane-tag">#SetTheLegacyTable</span>
+        <a class="ktr-lane-link" href="https://legacytable.app/keeptherecord">See the rules &rarr;</a>
+      </div>
+      <div class="ktr-lane">
+        <span class="ktr-lane-app">heyKindred</span>
+        <h3 class="ktr-lane-title">Call the gathering</h3>
+        <p class="ktr-lane-what">Plan a gathering in Kindred and bring your people in. Show us the room you built.</p>
+        <span class="ktr-lane-tag">#TheGatheringCypher</span>
+        <a class="ktr-lane-link" href="https://heykindred.org/reunion/start?type=holiday_meal&amp;campaign=keep-the-record">Start your gathering &rarr;</a>
+      </div>
+    </div>
+
+    <div class="ktr-actions">
+      <a class="ktr-primary" href="https://legacytable.app/keeptherecord">Read the rules &amp; enter</a>
+      <a class="ktr-secondary" href="https://heykindred.org/reunion/start?type=holiday_meal&amp;campaign=keep-the-record">Start a holiday gathering</a>
+    </div>
+
+    <p class="ktr-fine">Open worldwide to paid members of Legacy Table or heyKindred. One entry per person, per lane. Not a member yet? Founding-family pricing with code <span class="ktr-code">KEEPTHERECORD</span>. <span class="ktr-umbrella">#KeepTheRecord</span></p>
+  </div>
+</section>
 
 <div class="credibility-strip reveal">
   <div class="credibility-inner">
@@ -1050,5 +1166,73 @@
   wireForm('contact-form', 'contact-status', 'Thank you. We\'ll be in touch soon.');
   wireForm('kindred-form', 'kindred-status', 'You\'re on the list. Welcome to the village.');
 </script>
+
+<!-- Keep The Record: fill the band from /keep-the-record.json (same origin here).
+     The markup is the fallback; if this fetch fails the band still renders, just stale. -->
+<script>
+(function(){
+  var band = document.getElementById('ktr-band');
+  if (!band) return;
+  var SITE = 'ubuntu-markets';
+
+  function daysTo(iso){
+    var d = new Date(iso + 'T12:00:00Z'), n = new Date();
+    return Math.round((Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())
+                     - Date.UTC(n.getFullYear(), n.getMonth(), n.getDate())) / 86400000);
+  }
+  function fmt(iso){
+    return new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { month:'long', day:'numeric', timeZone:'UTC' });
+  }
+  function utm(href){
+    try { var u = new URL(href);
+      u.searchParams.set('utm_source', SITE);
+      u.searchParams.set('utm_medium', 'site');
+      u.searchParams.set('utm_campaign', 'keep-the-record');
+      return u.toString();
+    } catch (e) { return href; }
+  }
+
+  document.getElementById('ktr-days').textContent = Math.max(0, daysTo('2026-12-06'));
+
+  fetch('/keep-the-record.json', { cache: 'no-cache' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(c){
+      if (!c || typeof c.visible !== 'boolean') return;
+      if (!c.visible) { band.hidden = true; return; }
+
+      var left = daysTo(c.endDate);
+      var open = c.status === 'live' && left >= 0;
+
+      band.querySelector('.ktr-name').textContent    = c.name;
+      band.querySelector('.ktr-tagline').textContent = c.tagline;
+      band.querySelector('.ktr-body').textContent    = c.body;
+      document.getElementById('ktr-eyebrow-text').textContent =
+        open ? c.eyebrow : (c.status === 'judging' ? 'Entries closed · Judging now' : 'Campaign closed');
+      document.getElementById('ktr-pool').textContent  = c.prizePool;
+      document.getElementById('ktr-days').textContent  = Math.max(0, left);
+      document.getElementById('ktr-days-label').textContent = open ? 'Days to enter' : 'Days left';
+      document.getElementById('ktr-close').textContent = fmt(c.endDate);
+
+      var p = band.querySelector('.ktr-primary');
+      p.textContent = c.cta.primary.label; p.href = utm(c.cta.primary.href); p.hidden = !open;
+      var s = band.querySelector('.ktr-secondary');
+      s.textContent = c.cta.secondary.label; s.href = utm(c.cta.secondary.href);
+
+      var cards = band.querySelectorAll('.ktr-lane');
+      c.lanes.forEach(function(l, i){
+        var card = cards[i]; if (!card) return;
+        card.querySelector('.ktr-lane-app').textContent   = l.app;
+        card.querySelector('.ktr-lane-title').textContent = l.title;
+        card.querySelector('.ktr-lane-what').textContent  = l.what;
+        card.querySelector('.ktr-lane-tag').textContent   = l.tag;
+        var link = card.querySelector('.ktr-lane-link');
+        if (l.href && open) { link.href = utm(l.href); link.textContent = (l.linkLabel || 'Go') + ' →'; link.hidden = false; }
+        else { link.hidden = true; }
+      });
+    })
+    .catch(function(){ /* fallback markup stands */ });
+})();
+</script>
+
 </body>
 </html>

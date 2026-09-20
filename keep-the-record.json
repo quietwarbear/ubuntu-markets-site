@@ -1,0 +1,72 @@
+{
+  "_README": "Single source of truth for the Keep The Record campaign band. ubuntu-markets.org, legacytable.app and heykindred.org all read THIS file. Edit here and only here. Set visible:false to remove the band from every site without deleting anything.",
+  "visible": true,
+  "status": "live",
+  "_status_options": "upcoming | live | judging | closed. Past endDate the band treats itself as judging even if this is not changed.",
+  "eyebrow": "Now live · Open worldwide",
+  "name": "Keep The Record",
+  "tagline": "The stories don't keep themselves.",
+  "body": "Cook the recipe with the elder who holds it. Plan the gathering that brings everyone home. Post it, tag it, and you're in the running — $1,000 across three families, with winners announced December 18.",
+  "startDate": "2026-09-14",
+  "endDate": "2026-12-06",
+  "_dates": "endDate is the one deadline: enrolment AND final entry close Dec 6 2026, 11:59pm PT. Voting Dec 8-14, winners Dec 18. Must match legacytable.app/keeptherecord.",
+  "prizePool": "$1,000",
+  "prizes": [
+    {
+      "place": "First",
+      "amount": "$600",
+      "extra": "plus a comped year"
+    },
+    {
+      "place": "Second",
+      "amount": "$250",
+      "extra": "plus a comped year"
+    },
+    {
+      "place": "Third",
+      "amount": "$150",
+      "extra": "plus a comped year"
+    }
+  ],
+  "lanes": [
+    {
+      "app": "Legacy Table",
+      "title": "Set the table",
+      "what": "Cook a recipe you've saved in Legacy Table with the elder who taught it. Film it. Tag it.",
+      "tag": "#SetTheLegacyTable",
+      "href": "https://legacytable.app/keeptherecord",
+      "linkLabel": "See the rules"
+    },
+    {
+      "app": "heyKindred",
+      "title": "Call the gathering",
+      "what": "Plan a gathering in Kindred and bring your people in. Show us the room you built.",
+      "tag": "#TheGatheringCypher",
+      "href": "https://heykindred.org/reunion/start?type=holiday_meal&campaign=keep-the-record",
+      "linkLabel": "Start your gathering"
+    }
+  ],
+  "eligibility": "Open worldwide to paid members of Legacy Table or heyKindred. One entry per person, per lane.",
+  "cta": {
+    "primary": {
+      "label": "Read the rules & enter",
+      "href": "https://legacytable.app/keeptherecord"
+    },
+    "secondary": {
+      "label": "Start a holiday gathering",
+      "href": "https://heykindred.org/reunion/start?type=holiday_meal&campaign=keep-the-record"
+    }
+  },
+  "offer": {
+    "show": true,
+    "code": "KEEPTHERECORD",
+    "text": "Not a member yet? Founding-family pricing with code"
+  },
+  "umbrellaTag": "#KeepTheRecord",
+  "utm": {
+    "source": "ubuntu-markets",
+    "medium": "site",
+    "campaign": "keep-the-record"
+  },
+  "closedMessage": "Entries are closed. Winners announced December 18 — watch @heykindred and the Village Journal."
+}
